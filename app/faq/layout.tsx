@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
-import {ReactNode} from "react";
+import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'JSambo | FAQ',
+  title: 'Mascode | FAQ',
 };
 
 export default function FaqLayout({

@@ -1,0 +1,28 @@
+.wrapper {
+  max-width: 1240px;
+  margin: 55px auto 40px;
+}
+
+.container {
+  padding: 0 30px;
+}
+
+.title {
+  text-align: center;
+}
+
+.questions {
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+.questionTitle {
+  font-family: var(--font-caveat);
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.answer {
+  padding-left: 20px;
+  color: var(--coral);
+}

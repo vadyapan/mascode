@@ -33,7 +33,7 @@
   align-items: center;
   justify-content: center;
 
-  height: calc(100vh - 124px);
+  height: calc(100vh - 144px);
 }
 
 .test {
@@ -41,7 +41,9 @@
   align-items: center;
   justify-content: center;
 
-  height: calc(100vh - 124px);
+  height: calc(100vh - 144px);
+
+  border-right: 2px solid var(--coral);
 }
 
 .testSuccess {

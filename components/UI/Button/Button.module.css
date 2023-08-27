@@ -40,35 +40,36 @@
 }
 
 .success {
-  color: var(--success-bgr);
-  background-color: var(--success);
-  border: 2px solid var(--success-bgr);
-}
-
-.success:hover {
   color: var(--success);
   background-color: var(--success-bgr);
   border: 2px solid var(--success);
 }
 
-.primary {
-  color: var(--primary-bgr);
-  background-color: var(--primary);
-  border: 2px solid var(--primary-bgr);
+.success:hover {
+  color: var(--success-bgr);
+  background-color: var(--success);
+  border: 2px solid var(--success-bgr);
 }
 
-.primary:hover {
+.primary {
   color: var(--primary);
   background-color: var(--primary-bgr);
   border: 2px solid var(--primary);
 }
 
+.primary:hover {
+  color: var(--primary-bgr);
+  background-color: var(--primary);
+  border: 2px solid var(--primary-bgr);
+}
+
 .ghost {
   color: var(--black);
-  border: 2px solid var(--coral);
+  border: 2px solid var(--ghost);
   background: none;
 }
 
 .ghost:hover {
-  background-color: var(--coral);
+  background-color: var(--ghost);
+  border: 2px solid var(--ghost-bgr);
 }
