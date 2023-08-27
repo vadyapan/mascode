@@ -8,7 +8,7 @@ export default function Faq(): JSX.Element {
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.title}>
-            <H tag="h5" className={styles.title}>
+            <H tag="h4" className={styles.title}>
               Часто задаваемые вопросы
             </H>
           </div>
