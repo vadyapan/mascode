@@ -1,0 +1,86 @@
+.wrapper {
+  margin-top: 70px;
+
+  text-align: center;
+}
+
+.list {
+  max-width: 320px;
+  margin: 50px auto 0;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0;
+
+  list-style-type: none;
+
+  font-weight: 400;
+  font-size: 18px;
+  text-align: left;
+}
+
+.listTask {
+  max-width: 246px;
+  margin: 50px auto 0;
+}
+
+.linkItem {
+  margin: 5px;
+}
+
+.link {
+  position: relative;
+
+  display: inline-block;
+  overflow: hidden;
+
+  margin-bottom: 8px;
+
+  transition: color 0.3s;
+}
+
+.link::before {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+  content: '';
+  transition: transform 0.3s;
+  transform: scaleX(0);
+  transform-origin: right;
+
+  background-color: var(--black);
+}
+
+.link:hover {
+  color: var(--coral);
+}
+
+.link:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.circle {
+  display: inline-block;
+
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  margin-bottom: 7px;
+
+  border: 1px solid var(--black);
+  border-radius: 50%;
+}
+
+/* при решенной задаче */
+.circle:active {
+  background: var(--gold);
+}

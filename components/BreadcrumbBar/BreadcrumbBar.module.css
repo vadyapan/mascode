@@ -1,0 +1,23 @@
+.wrapper {
+  border-top: 2px solid var(--coral);
+  border-bottom: 2px solid var(--coral);
+}
+
+.breadcrumb {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  list-style-type: none;
+}
+
+.link:hover {
+  transition: all 0.3s;
+
+  color: var(--coral);
+}
+
+.link:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}

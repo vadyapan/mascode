@@ -1,0 +1,74 @@
+.button {
+  display: inline-block;
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 10px 15px;
+
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  text-transform: uppercase;
+
+  border: none;
+  border-radius: 30px;
+
+  font-family: var(--font-ibm-plex);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.present {
+  margin-top: 15px;
+  padding: 10px 15px;
+
+  color: var(----white-coral);
+  background-color: var(--white-coral);
+
+  border: 2px solid var(--coral);
+
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.present:hover {
+  filter: drop-shadow(7px 7px 0px var(--black));
+
+  background-color: var(--coral);
+
+  transition: all 0.3s;
+}
+
+.success {
+  color: var(--success-bgr);
+  background-color: var(--success);
+  border: 2px solid var(--success-bgr);
+}
+
+.success:hover {
+  color: var(--success);
+  background-color: var(--success-bgr);
+  border: 2px solid var(--success);
+}
+
+.primary {
+  color: var(--primary-bgr);
+  background-color: var(--primary);
+  border: 2px solid var(--primary-bgr);
+}
+
+.primary:hover {
+  color: var(--primary);
+  background-color: var(--primary-bgr);
+  border: 2px solid var(--primary);
+}
+
+.ghost {
+  color: var(--black);
+  border: 2px solid var(--coral);
+  background: none;
+}
+
+.ghost:hover {
+  background-color: var(--coral);
+}
