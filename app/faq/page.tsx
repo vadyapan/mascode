@@ -14,12 +14,10 @@ export default function Faq(): JSX.Element {
           </div>
           <div className={styles.questions}>
             {listFaq.map((item) => (
-              <details key={item.id} className={styles.question}>
-                <summary className={styles.questionTitle}>
-                  {item.question}
-                </summary>
+              <div key={item.id} className={styles.question}>
+                <span className={styles.questionTitle}>{item.question}</span>
                 <P className={styles.answer}>{item.answer}</P>
-              </details>
+              </div>
             ))}
           </div>
         </div>
