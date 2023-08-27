@@ -12,6 +12,7 @@ const customTheme = EditorView.theme({
     fontSize: '15px',
     fontFamily: 'var(--font-jetbrains)',
     minHeight: '40vh',
+    fontVariantLigatures: 'none',
   },
   '.cm-gutters': {
     height: '40vh',
