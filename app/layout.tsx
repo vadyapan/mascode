@@ -1,12 +1,7 @@
 'use client';
 import { ReactNode, useEffect, useState } from 'react';
 import { Header } from '@/layout/Header/Header';
-import {
-  Raleway,
-  IBM_Plex_Sans,
-  JetBrains_Mono,
-  Caveat,
-} from 'next/font/google';
+import { Raleway, IBM_Plex_Sans, Roboto_Mono, Caveat } from 'next/font/google';
 import { UserContext } from '@/context/UserContext';
 import { applyScheme, getSavedScheme } from '@/utils/colorScheme';
 import './globals.css';
@@ -25,10 +20,10 @@ const ibmPlexSans = IBM_Plex_Sans({
   display: 'swap',
 });
 
-const jetBrainsMono = JetBrains_Mono({
+const robotoMono = Roboto_Mono({
   subsets: ['latin'],
   weight: ['400'],
-  variable: '--font-jetbrains',
+  variable: '--font-roboto',
   display: 'swap',
 });
 
@@ -59,7 +54,7 @@ export default function RootLayout({
       value={{ userScheme: userScheme, setUserScheme: setUserScheme }}>
       <html
         lang="ru"
-        className={`${raleway.variable} ${ibmPlexSans.variable} ${jetBrainsMono.variable} ${caveat.variable}`}>
+        className={`${raleway.variable} ${ibmPlexSans.variable} ${robotoMono.variable} ${caveat.variable}`}>
         <body>
           <Header />
           {children}

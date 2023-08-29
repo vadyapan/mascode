@@ -1,39 +1,67 @@
 'use client';
-import { FC } from 'react';
-import { githubDark, githubLight } from '@uiw/codemirror-theme-github';
-import { javascript } from '@codemirror/lang-javascript';
-import styles from './CodeEditor.module.css';
-import CodeMirror from '@uiw/react-codemirror';
-import { EditorView } from '@codemirror/view';
+import { FC, useEffect } from 'react';
 import { CodeEditorProps } from '@/components/CodeEditor/CodeEditor.props';
-
-const customTheme = EditorView.theme({
-  '.cm-scroller': {
-    fontSize: '15px',
-    fontFamily: 'var(--font-jetbrains)',
-    minHeight: '40vh',
-    fontVariantLigatures: 'none',
-  },
-  '.cm-gutters': {
-    height: '40vh',
-  },
-  '&.cm-focused': {
-    outline: 'none',
-  },
-});
+import MonacoEditor, { loader } from '@monaco-editor/react';
+import { Spinner } from '../Icons//Spinner/Spinner';
+import styles from './CodeEditor.module.css';
 
 export const CodeEditor: FC<CodeEditorProps> = ({
   codeChange,
   setCodeChange,
   userScheme,
-}: CodeEditorProps): JSX.Element => {
+}: CodeEditorProps) => {
+  const colorScheme = userScheme === 'light' ? 'vs' : 'vs-dark';
+  const colorBackground = userScheme === 'light' ? '#ffffff' : '#0d1117';
+
+  useEffect(() => {
+    loader.init().then((monaco) => {
+      monaco.editor.defineTheme('myTheme', {
+        base: colorScheme,
+        inherit: true,
+        rules: [],
+        colors: {
+          'editor.background': colorBackground,
+          'editor.scrollbar': colorBackground,
+          'editor.lineHighlightBackground': '#00000000',
+          'editor.lineHighlightBorder': '#00000000',
+          'editor.renderLineHighlight': 'none',
+        },
+      });
+    });
+  }, [colorScheme, colorBackground]);
+
   return (
-    <CodeMirror
-      value={codeChange}
-      theme={userScheme === 'light' ? githubLight : githubDark}
-      extensions={[javascript(), customTheme]}
-      className={styles.codeMirror}
-      onChange={(e) => setCodeChange(e)}
+    <MonacoEditor
+      height="40vh"
+      defaultValue={codeChange}
+      defaultLanguage="javascript"
+      theme="myTheme"
+      className={styles.editor}
+      onChange={(e) => setCodeChange(e || codeChange)}
+      loading={<Spinner />}
+      options={{
+        wordWrap: 'on',
+        folding: false,
+        minimap: {
+          enabled: false,
+        },
+        scrollbar: {
+          vertical: 'hidden',
+          horizontal: 'hidden',
+          handleMouseWheel: false,
+        },
+        guides: {
+          indentation: false,
+        },
+        overviewRulerBorder: false,
+        overviewRulerLanes: 0,
+        fontSize: 15,
+        fontFamily: 'var(--font-roboto)',
+        cursorBlinking: 'expand',
+        cursorStyle: 'line',
+        lineNumbers: 'off',
+        matchBrackets: 'never',
+      }}
     />
   );
 };

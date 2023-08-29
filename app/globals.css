@@ -20,13 +20,16 @@ a {
 }
 
 :root {
-  --black: #000;
+  --black: #000000;
   --white-coral: #feeee9;
   --middle-coral: #fcd5cb;
   --menu-color: #feeee9;
+  --editor-bgr: #fff;
   --present: #f05124;
   --success: #04907f;
   --success-bgr: #b4ded9;
+  --error: #f05124;
+  --error-bgr: #fcd5cb;
   --primary: #92278f;
   --primary-bgr: #e7c3e7;
   --ghost: #f05124;
@@ -44,6 +47,7 @@ a {
   --middle-coral: #0d1117;
   --scheme-color: #f05124;
   --scheme-bgr: #0d1117;
+  --editor-bgr: #0d1117;
 
   color-scheme: dark;
 }

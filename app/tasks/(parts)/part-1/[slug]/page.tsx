@@ -33,8 +33,10 @@ export default function Task({ params }: TaskProps): JSX.Element {
       const currentAnswer = isMatch.map((task) => task.handleFunction(userFn));
       setWatchTask(false);
       setIsAnswerSuccess(currentAnswer[0]);
-    } catch (error: unknown) {
-      alert(`Вы близки к решению!\n\nИсправьте ошибку: ${error}`);
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error(`Исправьте ошибки: ${error.message}`);
+      }
     }
   };
 

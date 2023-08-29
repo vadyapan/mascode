@@ -10,7 +10,10 @@ export const handleEvenOrOdd = (fn: any): boolean => {
       assert.deepEqual(result, answer);
     }
     return true;
-  } catch (error: unknown) {
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
     return false;
   }
 };
@@ -24,7 +27,10 @@ export const handleOppositeNumber = (fn: any): boolean => {
       assert.deepEqual(result, answer);
     }
     return true;
-  } catch (error: unknown) {
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
     return false;
   }
 };
@@ -38,7 +44,10 @@ export const handleCenturyFromYear = (fn: any): boolean => {
       assert.deepEqual(result, answer);
     }
     return true;
-  } catch (error: unknown) {
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
     return false;
   }
 };
@@ -61,7 +70,10 @@ export const handleTwoWordName = (fn: any): boolean => {
       assert.deepEqual(result, answer);
     }
     return true;
-  } catch (error: unknown) {
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
     return false;
   }
 };
@@ -75,7 +87,10 @@ export const handleReversedString = (fn: any): boolean => {
       assert.deepEqual(result, answer);
     }
     return true;
-  } catch (error: unknown) {
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
     return false;
   }
 };
@@ -89,7 +104,10 @@ export const handleCreditCardMask = (fn: any): boolean => {
       assert.deepEqual(result, answer);
     }
     return true;
-  } catch (error: unknown) {
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
     return false;
   }
 };

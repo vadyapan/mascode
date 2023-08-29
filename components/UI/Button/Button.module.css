@@ -10,12 +10,20 @@
   text-align: center;
   text-transform: uppercase;
 
-  border: none;
+  color: var(--menu-color);
+  border: 2px solid var(--coral);
+  background-color: var(--coral);
   border-radius: 30px;
 
   font-family: var(--font-ibm-plex);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
+}
+
+.button:hover {
+  border: 2px solid var(--middle-coral);
+  background-color: var(--coral);
+  transition: all 0.2s;
 }
 
 .present {
@@ -36,31 +44,7 @@
 
   background-color: var(--coral);
 
-  transition: all 0.3s;
-}
-
-.success {
-  color: var(--success);
-  background-color: var(--success-bgr);
-  border: 2px solid var(--success);
-}
-
-.success:hover {
-  color: var(--success-bgr);
-  background-color: var(--success);
-  border: 2px solid var(--success-bgr);
-}
-
-.primary {
-  color: var(--primary);
-  background-color: var(--primary-bgr);
-  border: 2px solid var(--primary);
-}
-
-.primary:hover {
-  color: var(--primary-bgr);
-  background-color: var(--primary);
-  border: 2px solid var(--primary-bgr);
+  border: 2px solid var(--coral);
 }
 
 .ghost {
@@ -70,6 +54,6 @@
 }
 
 .ghost:hover {
+  color: var(--menu-color);
   background-color: var(--ghost);
-  border: 2px solid var(--ghost-bgr);
 }
