@@ -26,6 +26,10 @@
   margin-left: 10px;
 }
 
+.buttonSection .backToTask {
+  margin-left: 20px;
+}
+
 .noTask {
   display: flex;
   align-items: center;

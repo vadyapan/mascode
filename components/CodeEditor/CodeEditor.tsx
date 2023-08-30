@@ -11,7 +11,7 @@ export const CodeEditor: FC<CodeEditorProps> = ({
   userScheme,
 }: CodeEditorProps) => {
   const colorScheme = userScheme === 'light' ? 'vs' : 'vs-dark';
-  const colorBackground = userScheme === 'light' ? '#ffffff' : '#0d1117';
+  const colorBackground = userScheme === 'light' ? '#ffffff' : '#161A25';
 
   useEffect(() => {
     loader.init().then((monaco) => {

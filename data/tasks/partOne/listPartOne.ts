@@ -136,7 +136,7 @@ export const listPartOne: InterfaceTasks[] = [
     problem: `Первый век охватывает период с 1-го по 100-й год включительно, 
     второй век - с 101-го по 200-й год включительно и т.д. Задав год, верните век, 
     в котором он находится.`,
-    example: `1705 => 18\n1900 => 19\n1601 => 17\n2000 => 20`,
+    example: `1705 --> 18\n1900 --> 19\n1601 --> 17\n2000 --> 20`,
     startCode: `function century(year) {\n  // Ваш код...\n}`,
     handleFunction: handleCenturyFromYear,
   },
@@ -145,7 +145,7 @@ export const listPartOne: InterfaceTasks[] = [
     title: 'Инициалы имени',
     problem: `Напишите функцию для преобразования имени в инициалы.
     На выходе должны получиться две заглавные буквы с точкой, разделяющей их.`,
-    example: `Sam Harris => S.H\npatrick feeney => P.F`,
+    example: `Sam Harris --> S.H\npatrick feeney --> P.F`,
     startCode: `function abbrevName(name) {\n  // Ваш код...\n}`,
     handleFunction: handleTwoWordName,
   },
@@ -153,7 +153,7 @@ export const listPartOne: InterfaceTasks[] = [
     slug: 'reversed-string',
     title: 'Перевернутая строка',
     problem: `Напишите решение так, чтобы оно меняло переданную строку на противоположную.`,
-    example: `'world' => 'dlrow'\n'word' => 'drow'`,
+    example: `'world' --> 'dlrow'\n'word' --> 'drow'`,
     startCode: `function solution(str) {\n  // Ваш код...\n}`,
     handleFunction: handleReversedString,
   },
@@ -164,7 +164,7 @@ export const listPartOne: InterfaceTasks[] = [
     номер телефона или ответ на ваш самый секретный вопрос. Однако, поскольку кто-то может заглянуть 
     вам через плечо, вы не хотите, чтобы это было показано на экране. Вместо этого мы маскируем его.
     Ваша задача - написать функцию maskify, которая меняет все символы, кроме последних четырех, на '#'.`,
-    example: `maskify('4556364607935616') => '############5616'\nmaskify('64607935616') => '#######5616'\nmaskify('1') => '1'\n'' => ''`,
+    example: `maskify('4556364607935616') --> '############5616'\nmaskify('64607935616') --> '#######5616'\nmaskify('1') --> '1'\n'' --> ''`,
     startCode: `function maskify(cc) {\n  // Ваш код...\n}`,
     handleFunction: handleCreditCardMask,
   },

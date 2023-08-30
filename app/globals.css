@@ -43,11 +43,11 @@ a {
 
 [scheme='dark'] {
   --black: #feeee9;
-  --white-coral: #000;
-  --middle-coral: #0d1117;
+  --white-coral: #090e19;
+  --middle-coral: #161a25;
   --scheme-color: #f05124;
-  --scheme-bgr: #0d1117;
-  --editor-bgr: #0d1117;
+  --scheme-bgr: #161a25;
+  --editor-bgr: #161a25;
 
   color-scheme: dark;
 }

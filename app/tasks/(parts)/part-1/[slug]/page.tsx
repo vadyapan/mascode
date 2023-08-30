@@ -77,7 +77,10 @@ export default function Task({ params }: TaskProps): JSX.Element {
                 userScheme={userScheme}
               />
               <div className={styles.buttonSection}>
-                <Button apperance="ghost" onClick={handleBackToTask}>
+                <Button
+                  className={styles.backToTask}
+                  apperance="ghost"
+                  onClick={handleBackToTask}>
                   Вернуться к задаче
                 </Button>
                 <Button apperance="primary" onClick={handleCheckCode}>
