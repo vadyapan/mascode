@@ -15,7 +15,7 @@ export const Header = (): JSX.Element => {
     <header className={styles.header}>
       <div className={styles.header__info}>
         <div className={styles.logo}>
-          <Link href="/">
+          <Link href={'/'}>
             {userScheme === 'light' ? <LogoLight /> : <LogoDark />}
           </Link>
         </div>
@@ -23,21 +23,23 @@ export const Header = (): JSX.Element => {
           <ul className={styles.menu__list}>
             <li>
               <Link
-                href="/"
+                href={'/'}
                 className={currentRoute === '/' ? styles.activeLink : ''}>
                 Главная
               </Link>
             </li>
             <li>
               <Link
-                href="/tasks"
-                className={currentRoute === '/tasks' ? styles.activeLink : ''}>
+                href={'/tasks/part'}
+                className={
+                  currentRoute === '/tasks/part' ? styles.activeLink : ''
+                }>
                 Задачи
               </Link>
             </li>
             <li>
               <Link
-                href="/faq"
+                href={'/faq'}
                 className={currentRoute === '/faq' ? styles.activeLink : ''}>
                 FAQ
               </Link>

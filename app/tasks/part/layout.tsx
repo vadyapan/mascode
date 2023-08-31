@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Mascode | Задачи',
 };
 
-export default function TasksLayout({
+export default function PartLayout({
   children,
 }: {
   children: ReactNode;

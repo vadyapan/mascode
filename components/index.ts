@@ -8,5 +8,3 @@ export * from './Icons/Sun';
 export * from './ColorSchemeSwitcher/ColorSchemeSwitcher';
 export * from './CodeEditor/CodeEditor';
 export * from './BreadcrumbBar/BreadcrumbBar';
-export * from './List/ListParts/ListParts';
-export * from './List/ListTasks/ListTasks';

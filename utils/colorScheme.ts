@@ -1,4 +1,4 @@
-const LS_COLOR_SCHEME_KEY = 'jsoon:theme';
+const LS_COLOR_SCHEME_KEY = 'mascode:theme';
 
 export function applyScheme(scheme: 'dark' | 'light'): void {
   document.documentElement.setAttribute('scheme', scheme);

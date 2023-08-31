@@ -1,23 +1,27 @@
 .wrapper {
   border-top: 2px solid var(--coral);
   border-bottom: 2px solid var(--coral);
+  padding: 15px 0;
+  text-align: center;
 }
 
-.breadcrumb {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  list-style-type: none;
+.button {
+  font-size: 18px;
+  font-family: var(--font-ibm-plex);
+  background-color: var(--white-coral);
+  border: none;
+  cursor: pointer;
 }
 
-.link:hover {
+.button:hover {
   transition: all 0.3s;
 
   color: var(--coral);
 }
 
-.link:hover::before {
+.button:hover::before {
   transform: scaleX(1);
   transform-origin: left;
 }
+
+
