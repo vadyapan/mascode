@@ -6,10 +6,15 @@
 }
 
 .button {
-  font-size: 18px;
+  font-size: 14px;
   font-family: var(--font-ibm-plex);
+  font-weight: 600;
+  text-transform: uppercase;
+
   background-color: var(--white-coral);
+
   border: none;
+
   cursor: pointer;
 }
 
