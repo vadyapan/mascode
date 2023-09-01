@@ -4,7 +4,7 @@ import { NavBarProps } from './NavBar.props';
 import { ArrowLeft } from '..';
 import { ArrowRight } from '../Icons/ArrowRight';
 import cn from 'classnames';
-import styles from './BreadcrumbBar.module.css';
+import styles from './NavBar.module.css';
 
 export const NavBar = ({ tasksArray, taskMatch }: NavBarProps): JSX.Element => {
   const taskIndex = tasksArray.findIndex(
