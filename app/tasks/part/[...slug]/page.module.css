@@ -35,7 +35,7 @@
   align-items: center;
   justify-content: center;
 
-  height: calc(100vh - 145px);
+  height: calc(100vh - 143px);
 }
 
 .test {
@@ -43,7 +43,7 @@
   align-items: center;
   justify-content: center;
 
-  height: calc(100vh - 145px);
+  height: calc(100vh - 143px);
 }
 
 .testSuccess {
