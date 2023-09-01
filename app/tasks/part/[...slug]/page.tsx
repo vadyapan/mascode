@@ -1,5 +1,5 @@
 'use client';
-import { BreadcrumbBar, Button, CodeEditor, H, P } from '@/components';
+import { NavBar, Button, CodeEditor, H, P } from '@/components';
 import styles from './page.module.css';
 import stylesLink from '../page.module.css';
 import Link from 'next/link';
@@ -52,36 +52,39 @@ export default function Tasks({
     setIsAnswerSuccess(false);
   };
 
-  if (params.slug.length === 1) {
-    return (
-      <>
-        <div className={stylesLink.wrapper}>
-          <H tag="h5" className={stylesLink.title}>
-            Выберите задачу:
-          </H>
-          <div className={stylesLink.listTask}>
-            <ul className={stylesLink.links}>
-              {tasksArray.map((task) => (
-                <li key={task.slug}>
-                  <div className={stylesLink.circle}></div>
-                  <Link
-                    className={stylesLink.link}
-                    href={`${partMatch.partSlug}/${task.slug}`}>
-                    {task.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+  try {
+    if (params.slug.length === 1 && partMatch.partSlug === params.slug[0]) {
+      return (
+        <>
+          <div className={stylesLink.wrapper}>
+            <H tag="h5" className={stylesLink.title}>
+              Выберите задачу:
+            </H>
+            <div className={stylesLink.listTask}>
+              <ul className={stylesLink.links}>
+                {tasksArray.map((task) => (
+                  <li key={task.slug}>
+                    <div className={stylesLink.circle}></div>
+                    <Link
+                      className={stylesLink.link}
+                      href={`${partMatch.partSlug}/${task.slug}`}>
+                      {task.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-      </>
-    );
-  } else if (params.slug.length === 2) {
-    return (
-      <>
-        <BreadcrumbBar />
-        {taskMatch.length !== 0 ? (
-          taskMatch.map((task) => (
+        </>
+      );
+    } else if (
+      params.slug.length === 2 &&
+      taskMatch[0].slug === params.slug[1]
+    ) {
+      return (
+        <>
+          <NavBar tasksArray={tasksArray} taskMatch={taskMatch} />
+          {taskMatch.map((task) => (
             <div className={styles.container} key={task.slug}>
               {isAnswerSuccess && !watchTask && (
                 <div className={cn(styles.test, styles.testSuccess)}>
@@ -122,19 +125,20 @@ export default function Tasks({
                 </div>
               </div>
             </div>
-          ))
-        ) : (
-          <div className={styles.noTask}>
-            <H tag="h4">Такая задача не найдена!</H>
-          </div>
-        )}
-      </>
+          ))}
+        </>
+      );
+    }
+  } catch (error) {
+    return (
+      <div className={styles.noTask}>
+        <H tag="h4">Такая задача не найдена 😧</H>
+      </div>
     );
   }
-
   return (
-    <>
-      <H tag="h4">404 страница не найдена</H>
-    </>
+    <div className={styles.noTask}>
+      <H tag="h4">Такая страница не найдена 😧</H>
+    </div>
   );
 }

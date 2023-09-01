@@ -6,7 +6,7 @@ export interface InterfaceListProblems {
   tasks: InterfaceTask[];
 }
 
-interface InterfaceTask {
+export interface InterfaceTask {
   slug: string;
   title: string;
   problem: string;

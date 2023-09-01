@@ -5,6 +5,7 @@ export * from './Icons/LogoLight';
 export * from './Icons/LogoDark';
 export * from './Icons/Moon';
 export * from './Icons/Sun';
+export * from './Icons/ArrowLeft';
 export * from './ColorSchemeSwitcher/ColorSchemeSwitcher';
 export * from './CodeEditor/CodeEditor';
-export * from './BreadcrumbBar/BreadcrumbBar';
+export * from './NavBar/NavBar';

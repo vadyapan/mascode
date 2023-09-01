@@ -36,9 +36,9 @@
 }
 
 .activeLink {
-  padding: 7px;
+  padding: 7px 12px;
 
-  color: var(--menu-color);
+  color: var(--default-black);
   background-color: var(--coral);
   filter: drop-shadow(7px 7px 0px var(--black));
   border-radius: 20px;

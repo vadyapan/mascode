@@ -21,6 +21,7 @@ a {
 
 :root {
   --black: #000000;
+  --default-black: #000;
   --white-coral: #feeee9;
   --middle-coral: #fcd5cb;
   --menu-color: #feeee9;
@@ -30,8 +31,6 @@ a {
   --success-bgr: #b4ded9;
   --error: #f05124;
   --error-bgr: #fcd5cb;
-  --primary: #92278f;
-  --primary-bgr: #e7c3e7;
   --ghost: #f05124;
   --ghost-bgr: #fcd5cb;
   --coral: #f05124;
@@ -48,6 +47,10 @@ a {
   --scheme-color: #f05124;
   --scheme-bgr: #161a25;
   --editor-bgr: #161a25;
+  --success: #b4ded9;
+  --success-bgr: #0490803c;
+  --error: #fcd5cb;
+  --error-bgr: #f050243c;
 
   color-scheme: dark;
 }

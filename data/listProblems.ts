@@ -260,4 +260,20 @@ export const listProblems: InterfaceListProblems[] = [
       },
     ],
   },
+  {
+    part: 'Часть 2',
+    partTitle: 'Строки',
+    partSlug: 'two',
+    partId: 2,
+    tasks: [
+      {
+        slug: 'how-many',
+        title: 'аргументов',
+        problem: `Напишите функцию, которая определяет сколько аргументов передано в функцию.`,
+        example: `argsCount(1, 2, 3) -> 3\nargsCount(1, 2, 3, 10) -> 4\nargsCount(['foo', 'bar']) -> 1`,
+        startCode: `function argsCount(params) {\n  // Ваш код...\n}`,
+        handleFunction: handleHowManyArguments,
+      },
+    ],
+  },
 ];

@@ -30,7 +30,8 @@
   margin-top: 15px;
   padding: 10px 15px;
 
-  color: var(----white-coral);
+  color: var(--black);
+
   background-color: var(--white-coral);
 
   border: 2px solid var(--coral);
@@ -42,6 +43,7 @@
 .present:hover {
   filter: drop-shadow(7px 7px 0px var(--black));
 
+  color: var(--default-black);
   background-color: var(--coral);
 
   border: 2px solid var(--coral);
@@ -50,10 +52,10 @@
 .ghost {
   color: var(--black);
   border: 2px solid var(--ghost);
-  background: none;
+  background: var(--white-coral);
 }
 
 .ghost:hover {
   color: var(--menu-color);
-  background-color: var(--ghost);
+  background: var(--coral);
 }
