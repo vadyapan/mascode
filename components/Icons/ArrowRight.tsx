@@ -7,10 +7,9 @@ export const ArrowRight: FC = () => {
       height="25"
       viewBox="0 0 24 24"
       fill="none"
-      transform="rotate(180)"
       xmlns="http://www.w3.org/2000/svg">
       <path
-        d="M6 12H18M6 12L11 7M6 12L11 17"
+        d="M6 12H18M18 12L13 7M18 12L13 17"
         stroke="currentColor"
         stroke-width="2"
         stroke-linecap="round"
