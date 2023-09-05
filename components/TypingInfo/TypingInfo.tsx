@@ -8,12 +8,7 @@ export const TypingInfo = (): JSX.Element => {
   return (
     <>
       <div className={styles.typingTitle}>
-        <H tag="h2">
-          <Typewriter
-            words={['Получи практику программирования на JavaScript']}
-            typeSpeed={35}
-          />
-        </H>
+        <H tag="h2">Получи практику программирования на JavaScript</H>
       </div>
       <div className={styles.line}></div>
       <div className={styles.typingText}>
