@@ -1,10 +1,20 @@
-'use client';
-import { ReactNode, useEffect, useState } from 'react';
+import { Metadata } from 'next';
+import { ReactNode } from 'react';
 import { Header } from '@/layout/Header/Header';
 import { Raleway, IBM_Plex_Sans, Roboto_Mono, Caveat } from 'next/font/google';
-import { UserContext } from '@/context/UserContext';
-import { applyScheme, getSavedScheme } from '@/utils/colorScheme';
+import { UserContextProvider } from '@/context/UserContext';
 import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'Mascode | Получи практику программирования на JavaScript',
+  description: 'Получи практику программирования на JavaScript',
+  icons: {
+    icon: ['/favicon.ico?v=1'],
+    apple: ['/apple-touch-icon.png?v=1'],
+    shortcut: ['/apple-touch-icon.png'],
+  },
+  manifest: '/site.webmanifest',
+};
 
 const raleway = Raleway({
   subsets: ['latin'],
@@ -38,20 +48,8 @@ export default function RootLayout({
 }: {
   children: ReactNode;
 }): JSX.Element {
-  const [userScheme, setUserScheme] = useState<'dark' | 'light'>('light');
-
-  useEffect(() => {
-    const getScheme = getSavedScheme();
-    if (getScheme !== null) setUserScheme(JSON.parse(getScheme));
-  }, []);
-
-  useEffect(() => {
-    applyScheme(userScheme);
-  }, [userScheme]);
-
   return (
-    <UserContext.Provider
-      value={{ userScheme: userScheme, setUserScheme: setUserScheme }}>
+    <UserContextProvider>
       <html
         lang="ru"
         className={`${raleway.variable} ${ibmPlexSans.variable} ${robotoMono.variable} ${caveat.variable}`}>
@@ -60,6 +58,6 @@ export default function RootLayout({
           {children}
         </body>
       </html>
-    </UserContext.Provider>
+    </UserContextProvider>
   );
 }

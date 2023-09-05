@@ -1,13 +1,14 @@
+import { FC } from 'react';
 import { PProps } from './P.props';
 import cn from 'classnames';
 import styles from './P.module.css';
 
-export const P = ({
+export const P: FC<PProps> = ({
   size = 'm',
   children,
   className,
   ...props
-}: PProps): JSX.Element => {
+}: PProps) => {
   return (
     <p
       className={cn(styles.p, className, {
@@ -15,8 +16,7 @@ export const P = ({
         [styles.m]: size == 'm',
         [styles.l]: size == 'l',
       })}
-      {...props}
-    >
+      {...props}>
       {children}
     </p>
   );

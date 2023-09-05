@@ -1,5 +1,5 @@
 'use client';
-import { useContext } from 'react';
+import { FC, useContext } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { UserContext } from '@/context/UserContext';
@@ -7,7 +7,7 @@ import { LogoDark, LogoLight } from '@/components';
 import styles from './Header.module.css';
 import { ColorSchemeSwitcher } from '@/components/ColorSchemeSwitcher/ColorSchemeSwitcher';
 
-export const Header = (): JSX.Element => {
+export const Header: FC = () => {
   const currentRoute = usePathname();
   const { userScheme } = useContext(UserContext);
 

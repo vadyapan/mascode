@@ -1,4 +1,4 @@
-'use client';
+import { FC } from 'react';
 import Link from 'next/link';
 import { NavBarProps } from './NavBar.props';
 import { ArrowLeft } from '..';
@@ -6,7 +6,10 @@ import { ArrowRight } from '../Icons/ArrowRight';
 import cn from 'classnames';
 import styles from './NavBar.module.css';
 
-export const NavBar = ({ tasksArray, taskMatch }: NavBarProps): JSX.Element => {
+export const NavBar: FC<NavBarProps> = ({
+  tasksArray,
+  taskMatch,
+}: NavBarProps) => {
   const taskIndex = tasksArray.findIndex(
     (task) => task.slug === taskMatch[0].slug,
   );

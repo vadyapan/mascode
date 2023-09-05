@@ -1,20 +1,8 @@
-import { Metadata } from 'next';
 import styles from './page.module.css';
 import { Button, H, P } from '@/components';
 import Link from 'next/link';
 import { listParts } from '@/data/listParts';
 import Image from 'next/image';
-
-export const metadata: Metadata = {
-  title: 'Mascode | Получи практику программирования на JavaScript',
-  description: 'Получи практику программирования на JavaScript',
-  icons: {
-    icon: ['/favicon.ico?v=1'],
-    apple: ['/apple-touch-icon.png?v=1'],
-    shortcut: ['/apple-touch-icon.png'],
-  },
-  manifest: '/site.webmanifest',
-};
 
 export default function Home(): JSX.Element {
   return (
@@ -40,7 +28,7 @@ export default function Home(): JSX.Element {
             {listParts.map((card) => (
               <div key={card.id} className={styles.card}>
                 <Image
-                  src={'../../book-icon.svg'}
+                  src={'/book-icon.svg'}
                   width={53.33}
                   height={66.67}
                   alt={'Иконка книги'}
