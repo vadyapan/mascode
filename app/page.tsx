@@ -1,5 +1,5 @@
 import styles from './page.module.css';
-import { Button, H, P } from '@/components';
+import { Button, TypingInfo } from '@/components';
 import Link from 'next/link';
 import { listParts } from '@/data/listParts';
 import Image from 'next/image';
@@ -10,16 +10,7 @@ export default function Home(): JSX.Element {
       <main className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.info}>
-            <H tag="h2">Получи практику программирования на JavaScript</H>
-            <div className={styles.line}></div>
-            <P>
-              Изучение теории это лишь 10% обучения. Все остальное — практика.
-              Прокачивай навыки решая задачи.
-            </P>
-            <P>
-              Чтобы овладеть JavaScript на уровне junior/junior+, нужно
-              самостоятельно решить около 100-150 задач.
-            </P>
+            <TypingInfo />
             <Link href={'/tasks/part'}>
               <Button apperance="present">Начать</Button>
             </Link>

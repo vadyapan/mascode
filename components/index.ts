@@ -9,3 +9,4 @@ export * from './Icons/ArrowLeft';
 export * from './ColorSchemeSwitcher/ColorSchemeSwitcher';
 export * from './CodeEditor/CodeEditor';
 export * from './NavBar/NavBar';
+export * from './TypingInfo/TypingInfo';

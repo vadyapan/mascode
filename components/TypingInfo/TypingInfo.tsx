@@ -1,0 +1,33 @@
+'use client';
+import { Typewriter } from 'react-simple-typewriter';
+import { H } from '../UI/H/H';
+import { P } from '../UI/P/P';
+import styles from './TypingInfo.module.css';
+
+export const TypingInfo = (): JSX.Element => {
+  return (
+    <>
+      <div className={styles.typingTitle}>
+        <H tag="h2">
+          <Typewriter
+            words={['Получи практику программирования на JavaScript']}
+            typeSpeed={35}
+          />
+        </H>
+      </div>
+      <div className={styles.line}></div>
+      <div className={styles.typingText}>
+        <P>
+          <Typewriter
+            words={[
+              'Изучение теории это лишь 10% обучения. Все остальное — практика. Прокачивай навыки решая задачи.',
+              'Чтобы овладеть JavaScript на уровне junior/junior+, нужно самостоятельно решить около 100-150 задач.',
+            ]}
+            deleteSpeed={15}
+            typeSpeed={40}
+          />
+        </P>
+      </div>
+    </>
+  );
+};

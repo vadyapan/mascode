@@ -1,0 +1,17 @@
+.line {
+  width: 60px;
+  height: 2px;
+  margin-bottom: 50px;
+
+  background: var(--coral);
+}
+
+.typingTitle {
+  height: 90px;
+  width: 330px;
+  margin-bottom: 80px;
+}
+
+.typingText {
+  height: 120px;
+}
