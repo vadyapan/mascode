@@ -9,7 +9,7 @@ export const CodeEditor: FC<CodeEditorProps> = ({
   codeChange,
   setCodeChange,
   userScheme,
-}: CodeEditorProps) => {
+}) => {
   const colorScheme = userScheme === 'light' ? 'vs' : 'vs-dark';
   const colorBackground = userScheme === 'light' ? '#ffffff' : '#161A25';
 

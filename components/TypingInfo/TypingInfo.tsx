@@ -1,10 +1,11 @@
 'use client';
+import { FC } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import { H } from '../UI/H/H';
 import { P } from '../UI/P/P';
 import styles from './TypingInfo.module.css';
 
-export const TypingInfo = (): JSX.Element => {
+export const TypingInfo: FC = () => {
   return (
     <>
       <div className={styles.typingTitle}>

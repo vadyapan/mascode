@@ -8,7 +8,7 @@ export const Button: FC<ButtonProps> = ({
   children,
   className,
   ...props
-}: ButtonProps) => {
+}) => {
   return (
     <button
       className={cn(styles.button, className, {

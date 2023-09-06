@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { HProps } from './H.props';
 import styles from './H.module.css';
 
-export const H: FC<HProps> = ({ tag, children }: HProps) => {
+export const H: FC<HProps> = ({ tag, children }) => {
   switch (tag) {
     case 'h1':
       return <h1 className={styles.h1}>{children}</h1>;

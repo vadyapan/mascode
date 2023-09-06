@@ -8,7 +8,7 @@ export const P: FC<PProps> = ({
   children,
   className,
   ...props
-}: PProps) => {
+}) => {
   return (
     <p
       className={cn(styles.p, className, {

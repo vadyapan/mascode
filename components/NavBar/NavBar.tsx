@@ -6,10 +6,7 @@ import { ArrowRight } from '../Icons/ArrowRight';
 import cn from 'classnames';
 import styles from './NavBar.module.css';
 
-export const NavBar: FC<NavBarProps> = ({
-  tasksArray,
-  taskMatch,
-}: NavBarProps) => {
+export const NavBar: FC<NavBarProps> = ({ tasksArray, taskMatch }) => {
   const taskIndex = tasksArray.findIndex(
     (task) => task.slug === taskMatch[0].slug,
   );
