@@ -56,9 +56,7 @@ export const CodeEditor: FC<CodeEditorProps> = ({
         overviewRulerBorder: false,
         overviewRulerLanes: 0,
         fontSize: 15,
-        fontFamily: 'var(--font-roboto)',
-        cursorBlinking: 'expand',
-        cursorStyle: 'line',
+        fontFamily: 'var(--font-jb-mono)',
         lineNumbers: 'off',
         matchBrackets: 'never',
       }}

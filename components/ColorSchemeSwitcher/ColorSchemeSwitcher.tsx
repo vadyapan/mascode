@@ -13,13 +13,18 @@ export const ColorSchemeSwitcher: FC = () => {
       <button
         className={styles.colorSchemeSwitcherValue}
         id={'changeColorScheme'}
+        title={
+          userScheme === 'light'
+            ? 'Включить темную тему'
+            : 'Включить светлую тему'
+        }
         aria-label={'Поменять тему'}
         onClick={() => {
           userScheme === 'light'
             ? setUserScheme('dark')
             : setUserScheme('light');
         }}>
-        {userScheme === 'light' ? <Sun /> : <Moon />}
+        {userScheme === 'light' ? <Moon /> : <Sun />}
       </button>
     </div>
   );

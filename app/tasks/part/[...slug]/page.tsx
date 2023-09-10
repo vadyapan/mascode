@@ -1,5 +1,13 @@
 'use client';
-import { NavBar, Button, CodeEditor, H, P } from '@/components';
+import {
+  NavBar,
+  Button,
+  CodeEditor,
+  H,
+  P,
+  successNotification,
+  errorNotification,
+} from '@/components';
 import styles from './page.module.css';
 import stylesLink from '../page.module.css';
 import Link from 'next/link';
@@ -7,7 +15,6 @@ import { listProblems } from '@/data/listProblems';
 import { InterfaceListProblems } from '@/data/interface.listProblems';
 import { useContext, useState } from 'react';
 import { UserContext } from '@/context/UserContext';
-import cn from 'classnames';
 
 function isTasksSlugMatch(
   slugToCheck: string,
@@ -29,27 +36,25 @@ export default function Tasks({
   const [codeChange, setCodeChange] = useState(
     taskMatch.map((task) => task.startCode).join(''),
   );
-  const [isAnswerSuccess, setIsAnswerSuccess] = useState(false);
-  const [watchTask, setWatchTask] = useState(true);
 
-  const handleCheckCode = (): void => {
+  const handleCheckCode = async (): Promise<void> => {
     try {
       const userFn = eval(`(${codeChange})`);
-      const currentAnswer = taskMatch.map((task) =>
-        task.handleFunction(userFn),
+      const currentAnswer = await Promise.all(
+        taskMatch.map((task) => task.handleFunction(userFn)),
       );
-      setWatchTask(false);
-      setIsAnswerSuccess(currentAnswer[0]);
+      const isAnySuccess = currentAnswer.some((result) => result);
+      if (isAnySuccess) {
+        successNotification();
+      } else {
+        errorNotification();
+      }
     } catch (error) {
       if (error instanceof Error) {
         console.error(`Исправьте ошибки: ${error.message}`);
+        errorNotification();
       }
     }
-  };
-
-  const handleBackToTask = (): void => {
-    setWatchTask(true);
-    setIsAnswerSuccess(false);
   };
 
   try {
@@ -86,25 +91,13 @@ export default function Tasks({
           <NavBar tasksArray={tasksArray} taskMatch={taskMatch} />
           {taskMatch.map((task) => (
             <div className={styles.container} key={task.slug}>
-              {isAnswerSuccess && !watchTask && (
-                <div className={cn(styles.test, styles.testSuccess)}>
-                  <H tag="h4">Тест пройден!</H>
-                </div>
-              )}
-              {!isAnswerSuccess && !watchTask && (
-                <div className={cn(styles.test, styles.testError)}>
-                  <H tag="h4">Попробуйте еще раз!</H>
-                </div>
-              )}
-              {!isAnswerSuccess && watchTask && (
-                <div className={styles.problem}>
-                  <H tag="h4">{task.title}</H>
-                  <P>{task.problem}</P>
-                  {task.example && (
-                    <pre className={styles.example}>{task.example}</pre>
-                  )}
-                </div>
-              )}
+              <div className={styles.problem}>
+                <H tag="h4">{task.title}</H>
+                <P>{task.problem}</P>
+                {task.example && (
+                  <pre className={styles.example}>{task.example}</pre>
+                )}
+              </div>
               <div className={styles.workspace}>
                 <CodeEditor
                   codeChange={codeChange}
@@ -113,12 +106,9 @@ export default function Tasks({
                 />
                 <div className={styles.buttonSection}>
                   <Button
-                    className={styles.backToTask}
+                    className={styles.testButton}
                     apperance="ghost"
-                    onClick={handleBackToTask}>
-                    Вернуться к задаче
-                  </Button>
-                  <Button apperance="primary" onClick={handleCheckCode}>
+                    onClick={handleCheckCode}>
                     Тест
                   </Button>
                   <Button apperance="success">Отправить</Button>
@@ -132,13 +122,13 @@ export default function Tasks({
   } catch (error) {
     return (
       <div className={styles.noTask}>
-        <H tag="h4">Такая задача не найдена 😧</H>
+        <H tag="h4">Такая задача не найдена</H>
       </div>
     );
   }
   return (
     <div className={styles.noTask}>
-      <H tag="h4">Такая страница не найдена 😧</H>
+      <H tag="h4">Такая страница не найдена</H>
     </div>
   );
 }
