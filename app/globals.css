@@ -28,12 +28,11 @@ a {
   --editor-bgr: #fff;
   --present: #f05124;
   --success: #04907f;
-  --success-bgr: #b4ded9;
   --error: #f05124;
-  --error-bgr: #fcd5cb;
   --ghost: #f05124;
   --ghost-bgr: #fcd5cb;
   --coral: #f05124;
+  --coral-hover: #d74922;
   --scheme-color: #fff;
   --scheme-bgr: #f05124;
 
@@ -47,10 +46,6 @@ a {
   --scheme-color: #f05124;
   --scheme-bgr: #161a25;
   --editor-bgr: #161a25;
-  --success: #b4ded9;
-  --success-bgr: #0490803c;
-  --error: #fcd5cb;
-  --error-bgr: #f050243c;
 
   color-scheme: dark;
 }

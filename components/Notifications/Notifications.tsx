@@ -5,11 +5,11 @@ import { IconCheck, IconX } from '@tabler/icons-react';
 export const successNotification = (): void => {
   notifications.show({
     id: 'success-notifications',
-    title: 'Тест пройден! 👏',
+    title: 'Тест пройден!',
     message: 'Отправляйте результат',
     withCloseButton: false,
-    color: 'green',
     icon: <IconCheck />,
+    color: 'green',
     radius: 10,
   });
 };
@@ -17,11 +17,11 @@ export const successNotification = (): void => {
 export const errorNotification = (): void => {
   notifications.show({
     id: 'failed-notifications',
-    title: 'Тест не пройден! 🤔',
-    message: 'Воспользуйтесь консолью для отладки',
+    title: 'Тест не пройден!',
+    message: 'Используйте консоль для отладки',
     withCloseButton: false,
-    color: 'red',
     icon: <IconX />,
+    color: 'red',
     radius: 10,
   });
 };
