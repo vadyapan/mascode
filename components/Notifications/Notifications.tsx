@@ -6,7 +6,7 @@ export const successNotification = (): void => {
   notifications.show({
     id: 'success-notifications',
     title: 'Тест пройден!',
-    message: 'Отправляйте результат',
+    message: 'Переходите к следующей задаче',
     withCloseButton: false,
     icon: <IconCheck />,
     color: 'green',

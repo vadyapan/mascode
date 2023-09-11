@@ -2,11 +2,6 @@ import { H } from '@/components';
 import styles from './page.module.css';
 import Link from 'next/link';
 import { listProblems } from '@/data/listProblems';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Mascode | Задачи',
-};
 
 export default function Part(): JSX.Element {
   return (

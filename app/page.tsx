@@ -1,8 +1,20 @@
-import styles from './page.module.css';
-import { Button, TypingInfo } from '@/components';
-import Link from 'next/link';
-import { listParts } from '@/data/listParts';
+import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Button, TypingInfo } from '@/components';
+import { listParts } from '@/data/listParts';
+import styles from './page.module.css';
+
+export const metadata: Metadata = {
+  title: 'Mascode | Получи практику программирования на JavaScript',
+  description: 'Получи практику программирования на JavaScript',
+  icons: {
+    icon: ['/favicon.ico?v=1'],
+    apple: ['/apple-touch-icon.png?v=1'],
+    shortcut: ['/apple-touch-icon.png'],
+  },
+  manifest: '/site.webmanifest',
+};
 
 export default function Home(): JSX.Element {
   return (

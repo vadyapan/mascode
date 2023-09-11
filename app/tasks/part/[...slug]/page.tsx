@@ -13,8 +13,10 @@ import stylesLink from '../page.module.css';
 import Link from 'next/link';
 import { listProblems } from '@/data/listProblems';
 import { InterfaceListProblems } from '@/data/interface.listProblems';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '@/context/UserContext';
+import { getSolved, saveSolved } from '@/utils/storageSolved';
+import cn from 'classnames';
 
 function isTasksSlugMatch(
   slugToCheck: string,
@@ -28,14 +30,24 @@ export default function Tasks({
 }: {
   params: { slug: string[] };
 }): JSX.Element {
+  const { userScheme } = useContext(UserContext);
   const isMatch = isTasksSlugMatch(params.slug[0], listProblems);
   const partMatch = isMatch[0];
   const tasksArray = isMatch[0].tasks;
   const taskMatch = tasksArray.filter((task) => task.slug === params.slug[1]);
-  const { userScheme } = useContext(UserContext);
   const [codeChange, setCodeChange] = useState(
     taskMatch.map((task) => task.startCode).join(''),
   );
+  const [userProblems, setUserProblems] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    const getLocalSolved = getSolved();
+    if (getLocalSolved) setUserProblems(getLocalSolved);
+  }, []);
+
+  useEffect(() => {
+    saveSolved(userProblems);
+  }, [userProblems]);
 
   const handleCheckCode = async (): Promise<void> => {
     try {
@@ -43,8 +55,10 @@ export default function Tasks({
       const currentAnswer = await Promise.all(
         taskMatch.map((task) => task.handleFunction(userFn)),
       );
-      const isAnySuccess = currentAnswer.some((result) => result);
-      if (isAnySuccess) {
+      const isSuccessAnswer = currentAnswer[0];
+
+      if (isSuccessAnswer) {
+        setUserProblems({ ...userProblems, [taskMatch[0].slug]: true });
         successNotification();
       } else {
         errorNotification();
@@ -69,7 +83,16 @@ export default function Tasks({
               <ul className={stylesLink.links}>
                 {tasksArray.map((task) => (
                   <li key={task.slug}>
-                    <div className={stylesLink.circle}></div>
+                    {!userProblems[task.slug] && (
+                      <div className={cn(stylesLink.circle)}></div>
+                    )}
+                    {userProblems[task.slug] && (
+                      <div
+                        className={cn(
+                          stylesLink.circle,
+                          stylesLink.active,
+                        )}></div>
+                    )}
                     <Link
                       className={stylesLink.link}
                       href={`${partMatch.partSlug}/${task.slug}`}>
@@ -107,11 +130,10 @@ export default function Tasks({
                 <div className={styles.buttonSection}>
                   <Button
                     className={styles.testButton}
-                    apperance="ghost"
+                    apperance="primary"
                     onClick={handleCheckCode}>
-                    Тест
+                    Проверить решение
                   </Button>
-                  <Button apperance="success">Отправить</Button>
                 </div>
               </div>
             </div>

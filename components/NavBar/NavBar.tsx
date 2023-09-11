@@ -18,7 +18,7 @@ export const NavBar: FC<NavBarProps> = ({ tasksArray, taskMatch }) => {
           <div className={styles.arrowLeft}>
             <ArrowLeft />
           </div>
-          Вернуться к списку задач
+          Назад в список задач
         </Link>
         {tasksArray[taskIndex + 1] && (
           <Link
