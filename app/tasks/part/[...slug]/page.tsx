@@ -130,7 +130,7 @@ export default function Tasks({
                 <div className={styles.buttonSection}>
                   <Button
                     className={styles.testButton}
-                    apperance="primary"
+                    apperance="ghost"
                     onClick={handleCheckCode}>
                     Проверить решение
                   </Button>

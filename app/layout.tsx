@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <MantineProvider>
       <UserContextProvider>
-        <Notifications position="bottom-right" autoClose={5000} zIndex={2077} />
+        <Notifications position="top-center" autoClose={5000} zIndex={2077} />
         <html
           lang="ru"
           className={`${raleway.variable} ${ibmPlexSans.variable} ${jetBrainsMono.variable} ${caveat.variable}`}>

@@ -1,6 +1,7 @@
 'use client';
 import { notifications } from '@mantine/notifications';
 import { IconCheck, IconX } from '@tabler/icons-react';
+import './Notifications.module.css';
 
 export const successNotification = (): void => {
   notifications.show({

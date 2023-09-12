@@ -20,7 +20,6 @@
 }
 
 .button:hover {
-  border: 2px solid var(--middle-coral);
   background-color: var(--coral-hover);
   transition: all 0.2s;
 }
