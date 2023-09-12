@@ -1,5 +1,5 @@
 'use client';
-import { FC, useContext } from 'react';
+import { FC, MouseEvent, useContext } from 'react';
 import styles from './ColorSchemeSwitcher.module.css';
 import { Moon } from '@/components/Icons/Moon';
 import { Sun } from '@/components/Icons/Sun';
@@ -7,6 +7,15 @@ import { UserContext } from '@/context/UserContext';
 
 export const ColorSchemeSwitcher: FC = () => {
   const { userScheme, setUserScheme } = useContext(UserContext);
+
+  const handleColorScheme = (e: MouseEvent): void => {
+    e.preventDefault;
+    if (userScheme === 'light') {
+      setUserScheme('dark');
+    } else {
+      setUserScheme('light');
+    }
+  };
 
   return (
     <div className={styles.colorSchemeSwitcher}>
@@ -19,11 +28,7 @@ export const ColorSchemeSwitcher: FC = () => {
             : 'Включить светлую тему'
         }
         aria-label={'Поменять тему'}
-        onClick={() => {
-          userScheme === 'light'
-            ? setUserScheme('dark')
-            : setUserScheme('light');
-        }}>
+        onClick={handleColorScheme}>
         {userScheme === 'light' ? <Moon /> : <Sun />}
       </button>
     </div>

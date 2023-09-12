@@ -13,7 +13,7 @@ import stylesLink from '../page.module.css';
 import Link from 'next/link';
 import { listProblems } from '@/data/listProblems';
 import { InterfaceListProblems } from '@/data/interface.listProblems';
-import { useContext, useEffect, useState } from 'react';
+import { MouseEvent, useContext, useEffect, useState } from 'react';
 import { UserContext } from '@/context/UserContext';
 import { getSolved, saveSolved } from '@/utils/storageSolved';
 import cn from 'classnames';
@@ -49,7 +49,8 @@ export default function Tasks({
     saveSolved(userProblems);
   }, [userProblems]);
 
-  const handleCheckCode = async (): Promise<void> => {
+  const handleCheckCode = async (e: MouseEvent): Promise<void> => {
+    e.preventDefault;
     try {
       const userFn = eval(`(${codeChange})`);
       const currentAnswer = await Promise.all(
