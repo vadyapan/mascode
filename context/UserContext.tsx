@@ -5,11 +5,11 @@ import {
   Context,
   createContext,
   FC,
-  ReactNode,
+  ReactNode, useMemo,
 } from 'react';
 import { applyScheme, getSavedScheme } from '@/utils/colorScheme';
 
-type ColorScheme = 'light' | 'dark';
+export type ColorScheme = 'light' | 'dark';
 
 interface UserContextType {
   userScheme: ColorScheme;
@@ -38,9 +38,14 @@ export const UserContextProvider: FC<{ children: ReactNode }> = ({
     applyScheme(userScheme);
   }, [userScheme]);
 
+  const defaultScheme = useMemo(() => ({
+    userScheme: userScheme,
+    setUserScheme: setUserScheme
+  }), [userScheme]);
+
   return (
     <UserContext.Provider
-      value={{ userScheme: userScheme, setUserScheme: setUserScheme }}>
+      value={defaultScheme}>
       {children}
     </UserContext.Provider>
   );
