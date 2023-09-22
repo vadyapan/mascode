@@ -20,7 +20,7 @@ export const ColorSchemeSwitcher: FC = () => {
         }
         aria-label={'Поменять тему'}
         onClick={toggleTheme}>
-        {userScheme === 'light' ? <Moon /> : <Sun />}
+        {userScheme === 'light' ? <Sun /> : <Moon />}
       </button>
     </div>
   );

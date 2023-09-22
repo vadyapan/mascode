@@ -21,6 +21,7 @@ export const TypingInfo: FC = () => {
             ]}
             deleteSpeed={15}
             typeSpeed={40}
+            cursor
           />
         </P>
       </div>
