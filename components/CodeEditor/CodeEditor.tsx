@@ -32,7 +32,7 @@ export const CodeEditor: FC<CodeEditorProps> = ({
 
   return (
     <MonacoEditor
-      height="40vh"
+      height="50vh"
       defaultValue={codeChange}
       defaultLanguage="javascript"
       theme="myTheme"
@@ -56,7 +56,6 @@ export const CodeEditor: FC<CodeEditorProps> = ({
         overviewRulerBorder: false,
         overviewRulerLanes: 0,
         fontSize: 15,
-        fontFamily: 'var(--font-jb-mono)',
         lineNumbers: 'off',
         matchBrackets: 'never',
       }}

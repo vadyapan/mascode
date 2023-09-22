@@ -4,7 +4,6 @@ import { Header } from '@/layout/Header/Header';
 import {
   Raleway,
   IBM_Plex_Sans,
-  JetBrains_Mono,
   Caveat,
 } from 'next/font/google';
 import { UserContextProvider } from '@/context/UserContext';
@@ -26,13 +25,6 @@ const ibmPlexSans = IBM_Plex_Sans({
   display: 'swap',
 });
 
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-jb-mono',
-  display: 'swap',
-});
-
 const caveat = Caveat({
   subsets: ['latin'],
   variable: '--font-caveat',
@@ -50,7 +42,7 @@ export default function RootLayout({
         <Notifications position="top-center" autoClose={5000} zIndex={2077} />
         <html
           lang="ru"
-          className={`${raleway.variable} ${ibmPlexSans.variable} ${jetBrainsMono.variable} ${caveat.variable}`}>
+          className={`${raleway.variable} ${ibmPlexSans.variable} ${caveat.variable}`}>
           <body>
             <Header />
             {children}
