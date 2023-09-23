@@ -1,6 +1,5 @@
-import { InterfaceTask } from '@/data/interface.listProblems';
+import { InterfaceDataProblems } from '@/data/interfaces';
 
 export interface NavBarProps {
-  tasksArray: InterfaceTask[];
-  taskMatch: InterfaceTask[];
+  isMatch: InterfaceDataProblems[];
 }

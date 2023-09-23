@@ -3,10 +3,15 @@ export interface InterfaceListProblems {
   partTitle: string;
   partSlug: string;
   partId: number;
-  tasks: InterfaceTask[];
+  tasks: InterfaceProblem[];
 }
 
-export interface InterfaceTask {
+export interface InterfaceProblem {
+  slug: string;
+  title: string
+}
+
+export interface InterfaceDataProblems {
   slug: string;
   title: string;
   problem: string;

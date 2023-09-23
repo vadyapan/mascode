@@ -5,10 +5,11 @@ import { ArrowLeft } from '..';
 import { ArrowRight } from '../Icons/ArrowRight';
 import cn from 'classnames';
 import styles from './NavBar.module.css';
+import { dataProblems } from '@/data/dataProblems';
 
-export const NavBar: FC<NavBarProps> = ({ tasksArray, taskMatch }) => {
-  const taskIndex = tasksArray.findIndex(
-    (task) => task.slug === taskMatch[0].slug,
+export const NavBar: FC<NavBarProps> = ({ isMatch }) => {
+  const taskIndex = dataProblems.findIndex(
+    (task) => task.slug === isMatch[0].slug,
   );
 
   return (
@@ -20,10 +21,10 @@ export const NavBar: FC<NavBarProps> = ({ tasksArray, taskMatch }) => {
           </div>
           Назад в список задач
         </Link>
-        {tasksArray[taskIndex + 1] && (
+        {dataProblems[taskIndex + 1] && (
           <Link
             className={cn(styles.link, styles.linkRight)}
-            href={`${tasksArray[taskIndex + 1].slug}`}>
+            href={`${dataProblems[taskIndex + 1].slug}`}>
             Следующая задача
             <div className={styles.arrowRight}>
               <ArrowRight />
