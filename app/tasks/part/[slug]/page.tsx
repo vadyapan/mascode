@@ -12,9 +12,8 @@ export default function Tasks({
   params: { slug: string };
 }): JSX.Element {
   const isMatch = listProblems.filter((task) => task.partSlug === params.slug);
-  const partMatch = isMatch[0];
-  const tasksArray = isMatch[0].tasks;
-  
+  const [{ partSlug, tasks }] = isMatch;
+
   const [solved] = useSolved();
 
   return (
@@ -25,7 +24,7 @@ export default function Tasks({
         </H>
         <div className={styles.listTask}>
           <ul className={styles.links}>
-            {tasksArray.map((task) => (
+            {tasks.map((task) => (
               <li key={task.slug}>
                 {!solved[task.slug] && (
                   <div className={cn(styles.circle)}></div>
@@ -33,9 +32,7 @@ export default function Tasks({
                 {solved[task.slug] && (
                   <div className={cn(styles.circle, styles.active)}></div>
                 )}
-                <Link
-                  className={styles.link}
-                  href={`${partMatch.partSlug}/${task.slug}`}>
+                <Link className={styles.link} href={`${partSlug}/${task.slug}`}>
                   {task.title}
                 </Link>
               </li>

@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { getSolved, saveSolved } from '@/utils/storageSolved';
 
-interface SolvedProblems {
+export interface SolvedProblems {
   [problemSlug: string]: boolean;
 }
 

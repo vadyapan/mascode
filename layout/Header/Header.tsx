@@ -8,8 +8,8 @@ import styles from './Header.module.css';
 import { ColorSchemeSwitcher } from '@/components/ColorSchemeSwitcher/ColorSchemeSwitcher';
 
 export const Header: FC = () => {
-  const currentRoute = usePathname();
   const { userScheme } = useContext(UserContext);
+  const currentRoute = usePathname();
 
   return (
     <header className={styles.header}>

@@ -1,11 +1,7 @@
 'use client';
 import { ReactNode } from 'react';
 import { Header } from '@/layout/Header/Header';
-import {
-  Raleway,
-  IBM_Plex_Sans,
-  Caveat,
-} from 'next/font/google';
+import { Raleway, IBM_Plex_Sans, Fira_Code, Caveat } from 'next/font/google';
 import { UserContextProvider } from '@/context/UserContext';
 import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
@@ -22,6 +18,12 @@ const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600'],
   variable: '--font-ibm-plex',
+  display: 'swap',
+});
+
+const firaCode = Fira_Code({
+  subsets: ['latin'],
+  variable: '--font-fira',
   display: 'swap',
 });
 
@@ -42,7 +44,7 @@ export default function RootLayout({
         <Notifications position="top-center" autoClose={5000} zIndex={2077} />
         <html
           lang="ru"
-          className={`${raleway.variable} ${ibmPlexSans.variable} ${caveat.variable}`}>
+          className={`${raleway.variable} ${ibmPlexSans.variable} ${firaCode.variable} ${caveat.variable}`}>
           <body>
             <Header />
             {children}
