@@ -392,14 +392,6 @@ export const dataProblems: InterfaceDataProblems[] = [
     handleFunction: handleHowManyArguments,
   },
   {
-    slug: 'how-many-arguments',
-    title: 'Сколько аргументов',
-    problem: `Напишите функцию, которая определяет сколько аргументов передано в функцию.`,
-    example: `argsCount(1, 2, 3) -> 3\nargsCount(1, 2, 3, 10) -> 4\nargsCount(['foo', 'bar']) -> 1`,
-    startCode: `function argsCount(params) {\n  // Ваш код...\n}`,
-    handleFunction: handleHowManyArguments,
-  },
-  {
     slug: 'leap-years',
     title: 'Високосные года',
     problem: `В этой задаче нужно просто определить, является ли данный год високосным или нет. 
