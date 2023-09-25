@@ -169,11 +169,150 @@ export const handleHowManyArguments = (fn: any): boolean => {
   }
 };
 
+export const handleLeapYears = (fn: any): boolean => {
+  try {
+    const number = [2020, 2000, 2015, 2100];
+    for (const i of number) {
+      const answer = (i % 4 === 0 && i % 100 !== 0) || i % 400 === 0;
+      const result = fn(i);
+      assert.deepEqual(result, answer);
+    }
+    return true;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
+    return false;
+  }
+};
+
+export const handleSheep = (fn: any): boolean => {
+  try {
+    const number = [0, 1, 2, 3];
+    for (const i of number) {
+      let answer = '';
+      for (let j = 1; j <= i; j++) {
+        answer += j + ' sheep...';
+      }
+      const result = fn(i);
+      assert.deepEqual(result, answer);
+    }
+    return true;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
+    return false;
+  }
+};
+
+export const handleGrowthPopulation = (fn: any): boolean => {
+  try {
+    assert.deepEqual(fn(1500, 5, 100, 5000), 15);
+    assert.deepEqual(fn(1500000, 2.5, 10000, 2000000), 10);
+    assert.deepEqual(fn(1500000, 0.25, 1000, 2000000), 94);
+    return true;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
+    return false;
+  }
+};
+
+export const handleNumberVerifier = (fn: any): boolean => {
+  try {
+    const numberArr = [
+      6, 1, 28, 4986, 10, 496, 8128, 23459879034, 1098, 33550336,
+    ];
+    const knownPerfectNumbers = [
+      6, 28, 496, 8128, 33550336, 8589869056, 137438691328,
+    ];
+    for (const i of numberArr) {
+      const answer = knownPerfectNumbers.includes(i);
+      const result = fn(i);
+      assert.deepEqual(result, answer);
+    }
+    return true;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
+    return false;
+  }
+};
+
+export const handleSumPositive = (fn: any): boolean => {
+  try {
+    assert.deepEqual(fn([1, 2, 3, 4, 5]), 15);
+    assert.deepEqual(fn([1, -2, 3, 4, 5]), 13);
+    assert.deepEqual(fn([]), 0);
+    assert.deepEqual(fn([-1, -2, -3, -4, -5]), 0);
+    assert.deepEqual(fn([-1, 2, 3, 4, -5]), 9);
+    return true;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
+    return false;
+  }
+};
+
+export const handleShortestWord = (fn: any): boolean => {
+  try {
+    const strArr = [
+      'bitcoin take over the world maybe who knows perhaps',
+      'turns out random test cases are easier than writing out basic ones',
+      "Let's travel abroad shall we",
+    ];
+    for (const i of strArr) {
+      const answer = Math.min(...i.split(' ').map((word) => word.length));
+      const result = fn(i);
+      assert.deepEqual(result, answer);
+    }
+    return true;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
+    return false;
+  }
+};
+
+export const handleListFiltering = (fn: any): boolean => {
+  try {
+    assert.deepEqual(fn([1, 2, 'a', 'b']), [1, 2]);
+    assert.deepEqual(fn([1, 'a', 'b', 0, 15]), [1, 0, 15]);
+    assert.deepEqual(fn([1, 2, 'aasf', '1', '123', 123]), [1, 2, 123]);
+    return true;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
+    return false;
+  }
+};
+
+export const handleBuildSquare = (fn: any): boolean => {
+  try {
+    assert.deepEqual(
+      fn(8),
+      '++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++',
+    );
+    return true;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
+    return false;
+  }
+};
+
 export const dataProblems: InterfaceDataProblems[] = [
   {
     slug: 'even-or-odd',
     title: 'Четное или нечетное',
-    problem: `Создать функцию, принимающую в качестве аргумента целое число 
+    problem: `Создайте функцию, принимающую в качестве аргумента целое число 
     и возвращающую значение "Even" для четных чисел или "Odd" для нечетных.`,
     startCode: `function evenOrOdd(number) {\n  // Ваш код...\n}`,
     handleFunction: handleEvenOrOdd,
@@ -251,5 +390,96 @@ export const dataProblems: InterfaceDataProblems[] = [
     example: `argsCount(1, 2, 3) -> 3\nargsCount(1, 2, 3, 10) -> 4\nargsCount(['foo', 'bar']) -> 1`,
     startCode: `function argsCount(params) {\n  // Ваш код...\n}`,
     handleFunction: handleHowManyArguments,
+  },
+  {
+    slug: 'how-many-arguments',
+    title: 'Сколько аргументов',
+    problem: `Напишите функцию, которая определяет сколько аргументов передано в функцию.`,
+    example: `argsCount(1, 2, 3) -> 3\nargsCount(1, 2, 3, 10) -> 4\nargsCount(['foo', 'bar']) -> 1`,
+    startCode: `function argsCount(params) {\n  // Ваш код...\n}`,
+    handleFunction: handleHowManyArguments,
+  },
+  {
+    slug: 'leap-years',
+    title: 'Високосные года',
+    problem: `В этой задаче нужно просто определить, является ли данный год високосным или нет. 
+    Если вы не знаете правил, то вот они: Года, кратные 4, являются високосными. 
+    Но года, кратные 100, не являются високосными. Года, кратные 400, являются високосными.
+    Дополнительные примечания: проверяться будут только действительные года 
+    (целые положительные числа), поэтому их валидация не требуется.`,
+    startCode: `function isLeapYear(year) {\n  // Ваш код...\n}`,
+    handleFunction: handleLeapYears,
+  },
+  {
+    slug: 'sheep',
+    title: 'Просто считай овец',
+    problem: `При задании целого неотрицательного числа, например, 3, вернуть строку: 
+    "1 sheep...2 sheep...3 sheep...". Входные данные всегда будут корректными, т.е. 
+    не будут содержать отрицательных целых чисел.`,
+    startCode: `function countSheep(num) {\n  // Ваш код...\n}`,
+    handleFunction: handleSheep,
+  },
+  {
+    slug: 'growth-of-a-population',
+    title: 'Рост численности населения',
+    problem: `В небольшом городе численность населения в начале года составляет p0 = 1000 человек. 
+    Население регулярно увеличивается на 2% в год, кроме того, в город ежегодно прибывает 
+    50 новых жителей. Сколько лет необходимо городу, чтобы его население стало больше или 
+    равно p = 1200 жителей?`,
+    example: `В конце первого года будет:\n1000 + 1000 * 0.02 + 50 -> 1070 жителей\n\nВ конце 2-го года будет:\n1070 + 1070 * 0.02 + 50 -> 1141 жителей (** количество жителей - целое число **)\n\nВ конце 3-го года будет:\n1141 + 1141 * 0.02 + 50 -> 1213\n\nНа это потребуется целых 3 года.`,
+    problemSecond: `Общие заданные параметры: "p0, percent, aug (количество жителей, 
+    прибывающих или убывающих каждый год), p (численность населения, которая должна 
+    быть равна или превышена)" функция "nbYear" должна возвращать "n" количество целых 
+    лет, необходимых для того, чтобы численность населения была больше или равна "p".
+    aug - целое число, percent - положительное или нулевое плавающее число, p0 и p - 
+    положительные целые числа (> 0). Примечание: не забудьте преобразовать параметр percent 
+    в проценты в теле функции: если параметр percent равен 2, то его нужно преобразовать в 0,02.`,
+    exampleSecond: `nbYear(1500, 5, 100, 5000) -> 15\nnbYear(1500000, 2.5, 10000, 2000000) -> 10`,
+    startCode: `function nbYear(p0, percent, aug, p) {\n  // Ваш код...\n}`,
+    handleFunction: handleGrowthPopulation,
+  },
+  {
+    slug: 'number-verifier',
+    title: 'Верификатор идеальных чисел',
+    problem: `Совершенным числом называется число, у которого сумма делителей (за исключением самого 
+    себя) равна самому себе. Напишите функцию, которая может проверить, является ли заданное 
+    целое число "n" совершенным числом, и вернуть "True", если да, или "False", если нет.`,
+    example: `n = 28 имеет следующие делители: 1, 2, 4, 7, 14, 28\n1 + 2 + 4 + 7 + 14 = 28, следовательно,\n28 - совершенное число, поэтому следует вернуть True.\n\nДругой пример:\nn = 25 имеет следующие делители: 1, 5, 25\n1 + 5 = 6, следовательно, 25 не является совершенным числом,\nпоэтому следует вернуть False`,
+    startCode: `function isPerfect(n) {\n  // Ваш код...\n}`,
+    handleFunction: handleNumberVerifier,
+  },
+  {
+    slug: 'sum-of-positive',
+    title: 'Сумма положительных',
+    problem: `Вы получаете массив чисел, возвращаете сумму всех положительных чисел. 
+    Примечание: если суммировать нечего, то сумма по умолчанию равна 0.`,
+    example: `[1, -4, 7, 12] -> 1 + 7 + 12 = 20`,
+    startCode: `function positiveSum(arr) {\n  // Ваш код...\n}`,
+    handleFunction: handleSumPositive,
+  },
+  {
+    slug: 'shortest-word',
+    title: 'Самое короткое слово',
+    problem: `Простая, заданная строка слов, возвращает длину самого короткого слова (слов).
+    Строка никогда не будет пустой, и вам не нужно учитывать различные типы данных.`,
+    startCode: `function findShort(s) {\n  // Ваш код...\n}`,
+    handleFunction: handleShortestWord,
+  },
+  {
+    slug: 'list-filtering',
+    title: 'Фильтрация списков',
+    problem: `В этом задании вы создадите функцию, которая принимает список чисел и строк, 
+    и возвращает новый отфильтрованный список с числами.`,
+    example: `[1, 2, 'a', 'b'] -> [1, 2]\n[1, 'a', 'b', 0, 15] -> [1, 0, 15]\n[1, 2, 'abc', '1', '123', 123]) -> [1, 2, 123]`,
+    startCode: `function filterList(list) {\n  // Ваш код...\n}`,
+    handleFunction: handleListFiltering,
+  },
+  {
+    slug: 'build-a-square',
+    title: 'Построить квадрат',
+    problem: `Дано целое число. Верните фигуру, длина и ширина которой равны целому числу.`,
+    example: `n = 3, поэтому ожидается, что квадрат 3x3 будет возвращен,\nкак и ниже, в виде строки:\n\n+++\n+++\n+++`,
+    startCode: `function generateShape(integer) {\n  // Ваш код...\n}`,
+    handleFunction: handleBuildSquare,
   },
 ];

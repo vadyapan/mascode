@@ -1,4 +1,4 @@
-import { H, P } from '@/components';
+import { H } from '@/components';
 import { listFaq } from '@/data/listFaq';
 import styles from './page.module.css';
 
@@ -16,7 +16,7 @@ export default function Faq(): JSX.Element {
             {listFaq.map((item) => (
               <div key={item.id} className={styles.question}>
                 <span className={styles.questionTitle}>{item.question}</span>
-                <P className={styles.answer}>{item.answer}</P>
+                <p className={styles.answer}>{item.answer}</p>
               </div>
             ))}
           </div>

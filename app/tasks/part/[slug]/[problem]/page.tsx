@@ -63,6 +63,10 @@ export default function Problem({
             {task.example && (
               <pre className={styles.example}>{task.example}</pre>
             )}
+            {task.problemSecond && <P>{task.problemSecond}</P>}
+            {task.exampleSecond && (
+              <pre className={styles.example}>{task.exampleSecond}</pre>
+            )}
           </div>
           <div className={styles.workspace}>
             <CodeEditor

@@ -8,7 +8,7 @@ export interface InterfaceListProblems {
 
 export interface InterfaceProblem {
   slug: string;
-  title: string
+  title: string;
 }
 
 export interface InterfaceDataProblems {
@@ -16,6 +16,8 @@ export interface InterfaceDataProblems {
   title: string;
   problem: string;
   example?: string;
+  problemSecond?: string;
+  exampleSecond?: string;
   startCode: string;
   handleFunction: (fn: any) => boolean;
 }

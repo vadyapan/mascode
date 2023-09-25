@@ -43,6 +43,46 @@ export const listProblems: InterfaceListProblems[] = [
         slug: 'how-many-arguments',
         title: 'Сколько аргументов',
       },
+      {
+        slug: 'leap-years',
+        title: 'Високосные года',
+      },
+      {
+        slug: 'sheep',
+        title: 'Просто считай овец',
+      },
+      {
+        slug: 'growth-of-a-population',
+        title: 'Рост численности населения',
+      },
+      {
+        slug: 'number-verifier',
+        title: 'Верификатор идеальных чисел',
+      },
+    ],
+  },
+  {
+    part: 'Часть 2',
+    partTitle: 'Массивы и строки',
+    partSlug: 'two',
+    partId: 2,
+    tasks: [
+      {
+        slug: 'sum-of-positive',
+        title: 'Сумма положительных',
+      },
+      {
+        slug: 'shortest-word',
+        title: 'Самое короткое слово',
+      },
+      {
+        slug: 'list-filtering',
+        title: 'Фильтрация списков',
+      },
+      {
+        slug: 'build-a-square',
+        title: 'Построить квадрат',
+      },
     ],
   },
 ];

@@ -55,7 +55,7 @@ export const CodeEditor: FC<CodeEditorProps> = ({
         },
         overviewRulerBorder: false,
         overviewRulerLanes: 0,
-        fontFamily: 'var(--font-fira)',
+        fontFamily: 'var(--font-jetBrains)',
         fontSize: 15,
         lineNumbers: 'off',
         matchBrackets: 'never',
