@@ -2,9 +2,9 @@
 import { H } from '@/components';
 import Link from 'next/link';
 import { listProblems } from '@/data/listProblems';
-import styles from '../page.module.css';
 import { useSolved } from '@/context/useSolved';
 import cn from 'classnames';
+import styles from '../page.module.css';
 
 export default function Tasks({
   params,
