@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { NavBarProps } from './NavBar.props';
 import { ArrowLeft } from '..';
 import { ArrowRight } from '../Icons/ArrowRight';
-import cn from 'classnames';
 import styles from './NavBar.module.css';
 import { dataProblems } from '@/data/dataProblems';
+import cn from 'classnames';
 
 export const NavBar: FC<NavBarProps> = ({ isMatch }) => {
   const taskIndex = dataProblems.findIndex(

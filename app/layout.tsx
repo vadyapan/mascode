@@ -4,7 +4,7 @@ import { Header } from '@/layout/Header/Header';
 import {
   Raleway,
   IBM_Plex_Sans,
-  JetBrains_Mono,
+  Noto_Sans_Mono,
   Caveat,
 } from 'next/font/google';
 import { UserContextProvider } from '@/context/UserContext';
@@ -26,10 +26,10 @@ const ibmPlexSans = IBM_Plex_Sans({
   display: 'swap',
 });
 
-const jetBrains = JetBrains_Mono({
+const notoSans = Noto_Sans_Mono({
   subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-jetBrains',
+  weight: ['500'],
+  variable: '--font-notoSans',
   display: 'swap',
 });
 
@@ -50,7 +50,7 @@ export default function RootLayout({
         <Notifications position="top-center" autoClose={5000} zIndex={2077} />
         <html
           lang="ru"
-          className={`${raleway.variable} ${ibmPlexSans.variable} ${jetBrains.variable} ${caveat.variable}`}>
+          className={`${raleway.variable} ${ibmPlexSans.variable} ${notoSans.variable} ${caveat.variable}`}>
           <body>
             <Header />
             {children}

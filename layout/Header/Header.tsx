@@ -15,7 +15,7 @@ export const Header: FC = () => {
     <header className={styles.header}>
       <div className={styles.header__info}>
         <div className={styles.logo}>
-          <Link href={'/'}>
+          <Link href={'/'} aria-label="Mascode">
             {userScheme === 'light' ? <LogoLight /> : <LogoDark />}
           </Link>
         </div>

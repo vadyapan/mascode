@@ -18,7 +18,7 @@ export const errorNotification = (): void => {
   notifications.show({
     id: 'failed-notifications',
     title: 'Тест не пройден!',
-    message: 'Используйте консоль для отладки',
+    message: 'Используйте консоль (F12) для отладки',
     withCloseButton: false,
     icon: <IconX />,
     color: 'red',
