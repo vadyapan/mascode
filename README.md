@@ -8,20 +8,20 @@
 
 <table width='100%'>
   <tr>
-    <td align="center" width="110" height="90"> 
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
-      width="36" height="36" alt="NextJS" />
-      <br>NextJS
+    <td align="center" width="110" height="90">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+      width="36" height="36" alt="TypeScript" />
+      <br>TypeScript
     </td>
     <td align="center" width="110" height="90"> 
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
       width="36" height="36" alt="React" />
       <br>React
     </td>
-    <td align="center" width="110" height="90">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-      width="36" height="36" alt="TypeScript" />
-      <br>TypeScript
+    <td align="center" width="110" height="90"> 
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+      width="36" height="36" alt="NextJS" />
+      <br>NextJS
     </td>
     <td align="center" width="110" height="90"> 
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg"

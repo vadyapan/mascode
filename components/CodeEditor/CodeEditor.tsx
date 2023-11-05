@@ -46,9 +46,7 @@ export const CodeEditor: FC<CodeEditorProps> = ({
           enabled: false,
         },
         scrollbar: {
-          vertical: 'hidden',
           horizontal: 'hidden',
-          handleMouseWheel: false,
         },
         guides: {
           indentation: false,
@@ -56,8 +54,8 @@ export const CodeEditor: FC<CodeEditorProps> = ({
         overviewRulerBorder: false,
         overviewRulerLanes: 0,
         fontFamily: 'var(--font-notoSans)',
-        fontSize: 15,
         lineNumbers: 'off',
+        fontSize: 14.5,
         matchBrackets: 'never',
       }}
     />

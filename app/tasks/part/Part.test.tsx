@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Part from '@/app/tasks/part/page';
+import Part from './page';
 
 describe('Part page test', () => {
   it('text in the link', () => {

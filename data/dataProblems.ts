@@ -314,7 +314,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     title: 'Четное или нечетное',
     problem: `Создайте функцию, принимающую в качестве аргумента целое число 
     и возвращающую значение "Even" для четных чисел или "Odd" для нечетных.`,
-    startCode: `function evenOrOdd(number) {\n  // Ваш код...\n}`,
+    startCode: `function evenOrOdd(number) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleEvenOrOdd,
   },
   {
@@ -323,7 +323,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     problem: `Очень просто: задано целое число или число с плавающей точкой, 
     найдите его противоположность.`,
     example: `1: -1\n14: -14\n-34: 34`,
-    startCode: `function opposite(number) {\n  // Ваш код...\n}`,
+    startCode: `function opposite(number) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleOppositeNumber,
   },
   {
@@ -333,7 +333,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     второй век - с 101-го по 200-й год включительно и т.д. Задав год, верните век, 
     в котором он находится.`,
     example: `1705 --> 18\n1900 --> 19\n1601 --> 17\n2000 --> 20`,
-    startCode: `function century(year) {\n  // Ваш код...\n}`,
+    startCode: `function century(year) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleCenturyFromYear,
   },
   {
@@ -342,7 +342,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     problem: `Напишите функцию для преобразования имени в инициалы.
     На выходе должны получиться две заглавные буквы с точкой, разделяющей их.`,
     example: `Sam Harris --> S.H\npatrick feeney --> P.F`,
-    startCode: `function abbrevName(name) {\n  // Ваш код...\n}`,
+    startCode: `function abbrevName(name) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleTwoWordName,
   },
   {
@@ -350,7 +350,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     title: 'Перевернутая строка',
     problem: `Напишите решение так, чтобы оно меняло переданную строку на противоположную.`,
     example: `'world' --> 'dlrow'\n'word' --> 'drow'`,
-    startCode: `function solution(str) {\n  // Ваш код...\n}`,
+    startCode: `function solution(str) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleReversedString,
   },
   {
@@ -361,7 +361,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     вам через плечо, вы не хотите, чтобы это было показано на экране. Вместо этого мы маскируем его.
     Ваша задача - написать функцию maskify, которая меняет все символы, кроме последних четырех, на '#'.`,
     example: `maskify('4556364607935616') --> '############5616'\nmaskify('64607935616') --> '#######5616'\nmaskify('1') --> '1'\n'' --> ''`,
-    startCode: `function maskify(cc) {\n  // Ваш код...\n}`,
+    startCode: `function maskify(cc) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleCreditCardMask,
   },
   {
@@ -370,7 +370,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     problem: `Все довольно просто. Ваша задача - создать функцию, удаляющую первый и 
     последний символы строки. Вам дан один параметр - исходная строка. Не нужно беспокоиться о строках, 
     содержащих менее двух символов.`,
-    startCode: `function removeChar(str) {\n  // Ваш код...\n}`,
+    startCode: `function removeChar(str) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleRemoveFirstAndLastCharacter,
   },
   {
@@ -380,7 +380,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     строку из этих чисел в виде телефонного номера. Для выполнения этого задания необходимо правильно
     указать возвращаемый формат. Не забудьте пробел после закрывающих скобок!`,
     example: `createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) --> '(123) 456-7890'`,
-    startCode: `function createPhoneNumber(numbers) {\n  // Ваш код...\n}`,
+    startCode: `function createPhoneNumber(numbers) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleCreatePhoneNumber,
   },
   {
@@ -388,7 +388,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     title: 'Сколько аргументов',
     problem: `Напишите функцию, которая определяет сколько аргументов передано в функцию.`,
     example: `argsCount(1, 2, 3) -> 3\nargsCount(1, 2, 3, 10) -> 4\nargsCount(['foo', 'bar']) -> 1`,
-    startCode: `function argsCount(params) {\n  // Ваш код...\n}`,
+    startCode: `function argsCount(params) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleHowManyArguments,
   },
   {
@@ -399,7 +399,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     Но года, кратные 100, не являются високосными. Года, кратные 400, являются високосными.
     Дополнительные примечания: проверяться будут только действительные года 
     (целые положительные числа), поэтому их валидация не требуется.`,
-    startCode: `function isLeapYear(year) {\n  // Ваш код...\n}`,
+    startCode: `function isLeapYear(year) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleLeapYears,
   },
   {
@@ -408,7 +408,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     problem: `При задании целого неотрицательного числа, например, 3, вернуть строку: 
     "1 sheep...2 sheep...3 sheep...". Входные данные всегда будут корректными, т.е. 
     не будут содержать отрицательных целых чисел.`,
-    startCode: `function countSheep(num) {\n  // Ваш код...\n}`,
+    startCode: `function countSheep(num) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleSheep,
   },
   {
@@ -427,7 +427,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     положительные целые числа (> 0). Примечание: не забудьте преобразовать параметр percent 
     в проценты в теле функции: если параметр percent равен 2, то его нужно преобразовать в 0,02.`,
     exampleSecond: `nbYear(1500, 5, 100, 5000) -> 15\nnbYear(1500000, 2.5, 10000, 2000000) -> 10`,
-    startCode: `function nbYear(p0, percent, aug, p) {\n  // Ваш код...\n}`,
+    startCode: `function nbYear(p0, percent, aug, p) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleGrowthPopulation,
   },
   {
@@ -437,7 +437,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     себя) равна самому себе. Напишите функцию, которая может проверить, является ли заданное 
     целое число "n" совершенным числом, и вернуть "True", если да, или "False", если нет.`,
     example: `n = 28 имеет следующие делители: 1, 2, 4, 7, 14, 28\n1 + 2 + 4 + 7 + 14 = 28, следовательно,\n28 - совершенное число, поэтому следует вернуть True.\n\nДругой пример:\nn = 25 имеет следующие делители: 1, 5, 25\n1 + 5 = 6, следовательно, 25 не является совершенным числом,\nпоэтому следует вернуть False`,
-    startCode: `function isPerfect(n) {\n  // Ваш код...\n}`,
+    startCode: `function isPerfect(n) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleNumberVerifier,
   },
   {
@@ -446,7 +446,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     problem: `Вы получаете массив чисел, возвращаете сумму всех положительных чисел. 
     Примечание: если суммировать нечего, то сумма по умолчанию равна 0.`,
     example: `[1, -4, 7, 12] -> 1 + 7 + 12 = 20`,
-    startCode: `function positiveSum(arr) {\n  // Ваш код...\n}`,
+    startCode: `function positiveSum(arr) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleSumPositive,
   },
   {
@@ -454,7 +454,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     title: 'Самое короткое слово',
     problem: `Простая, заданная строка слов, возвращает длину самого короткого слова (слов).
     Строка никогда не будет пустой, и вам не нужно учитывать различные типы данных.`,
-    startCode: `function findShort(s) {\n  // Ваш код...\n}`,
+    startCode: `function findShort(s) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleShortestWord,
   },
   {
@@ -463,7 +463,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     problem: `В этом задании вы создадите функцию, которая принимает список чисел и строк, 
     и возвращает новый отфильтрованный список с числами.`,
     example: `[1, 2, 'a', 'b'] -> [1, 2]\n[1, 'a', 'b', 0, 15] -> [1, 0, 15]\n[1, 2, 'abc', '1', '123', 123]) -> [1, 2, 123]`,
-    startCode: `function filterList(list) {\n  // Ваш код...\n}`,
+    startCode: `function filterList(list) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleListFiltering,
   },
   {
@@ -471,7 +471,7 @@ export const dataProblems: InterfaceDataProblems[] = [
     title: 'Построить квадрат',
     problem: `Дано целое число. Верните фигуру, длина и ширина которой равны целому числу.`,
     example: `n = 3, поэтому ожидается, что квадрат 3x3 будет возвращен,\nкак и ниже, в виде строки:\n\n+++\n+++\n+++`,
-    startCode: `function generateShape(integer) {\n  // Ваш код...\n}`,
+    startCode: `function generateShape(integer) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleBuildSquare,
   },
 ];
