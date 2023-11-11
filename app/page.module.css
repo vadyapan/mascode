@@ -63,3 +63,7 @@
 .desc {
   font-size: 14px;
 }
+
+.monaco-editor.vs .line-numbers {
+  color: red;
+}

@@ -52,9 +52,9 @@ export const CodeEditor: FC<CodeEditorProps> = ({
           indentation: false,
         },
         overviewRulerBorder: false,
+        lineNumbersMinChars: 2,
         overviewRulerLanes: 0,
         fontFamily: 'var(--font-notoSans)',
-        lineNumbers: 'off',
         fontSize: 14.5,
         matchBrackets: 'never',
       }}
