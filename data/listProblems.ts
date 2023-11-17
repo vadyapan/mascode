@@ -83,6 +83,10 @@ export const listProblems: InterfaceListProblems[] = [
         slug: 'build-a-square',
         title: 'Построить квадрат',
       },
+      {
+        slug: 'playing-with-digits',
+        title: 'Игра с числами',
+      },
     ],
   },
 ];

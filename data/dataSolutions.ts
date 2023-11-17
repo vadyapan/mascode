@@ -306,3 +306,18 @@ export const handleBuildSquare = (fn: any): boolean => {
     return false;
   }
 };
+
+export const handlePlayingDigits = (fn: any): boolean => {
+  try {
+    assert.deepEqual(fn(89, 1), 1);
+    assert.deepEqual(fn(92, 1), -1);
+    assert.deepEqual(fn(695, 2), 2);
+    assert.deepEqual(fn(46288, 3), 51);
+    return true;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
+    return false;
+  }
+};

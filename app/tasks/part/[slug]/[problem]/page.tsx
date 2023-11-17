@@ -8,11 +8,12 @@ import {
   successNotification,
   errorNotification,
 } from '@/components';
-import { MouseEvent, useContext, useState } from 'react';
+import { MouseEvent, useContext, useEffect, useState } from 'react';
 import { UserContext } from '@/context/UserContext';
 import { dataProblems } from '@/data/dataProblems';
 import styles from './page.module.css';
 import { useSolved } from '@/context/useSolved';
+import Modal from '@/components/Modal/Modal';
 
 export default function Problem({
   params,
@@ -20,14 +21,20 @@ export default function Problem({
   params: { problem: string };
 }): JSX.Element {
   const { userScheme } = useContext(UserContext);
+  const [solved, updateSolved] = useSolved();
+  const [openModal, setOpenModal] = useState<boolean>(false);
   const isMatch = dataProblems.filter(
     (problem) => problem.slug === params.problem,
   );
-
   const [codeChange, setCodeChange] = useState(
     isMatch.map((task) => task.startCode).join(''),
   );
-  const [solved, updateSolved] = useSolved();
+
+  useEffect(() => {
+    setInterval(() => {
+      setOpenModal(true);
+    }, 600000);
+  }, []);
 
   const handleCheckCode = async (e: MouseEvent): Promise<void> => {
     e.preventDefault;
@@ -85,6 +92,17 @@ export default function Problem({
           </div>
         </div>
       ))}
+      <>
+        <Modal open={openModal} onClose={() => setOpenModal(false)}>
+          <H tag="h3">Не можешь решить задачу? 🤔</H>
+          <H tag="h3">Занимайся с ментором!</H>
+          <Button className={styles.messageBtn} apperance="primary">
+            <a href="https://t.me/vadyapan" target="_blank">
+              Написать ментору
+            </a>
+          </Button>
+        </Modal>
+      </>
     </>
   );
 }

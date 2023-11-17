@@ -10,6 +10,7 @@ import {
   handleListFiltering,
   handleNumberVerifier,
   handleOppositeNumber,
+  handlePlayingDigits,
   handleRemoveFirstAndLastCharacter,
   handleReversedString,
   handleSheep,
@@ -184,5 +185,22 @@ export const dataProblems: InterfaceDataProblems[] = [
     example: `n = 3, поэтому ожидается, что квадрат 3x3 будет возвращен,\nкак и ниже, в виде строки:\n\n+++\n+++\n+++`,
     startCode: `function generateShape(integer) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handleBuildSquare,
+  },
+  {
+    slug: 'playing-with-digits',
+    title: 'Игра с числами',
+    problem: `Некоторые числа обладают забавными свойствами. Например:
+    [89 --> 8¹ + 9² = 89 * 1]
+    [695 --> 6² + 9³ + 5⁴= 1390 = 695 * 2]
+    [46288 --> 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51]
+    Дано целое положительное число n, записанное в виде abcd... (a, b, c, d... - цифры), 
+    и целое положительное число p. Мы хотим найти целое положительное число k, если оно 
+    существует, такое, что сумма цифр n, возведенных в последовательные степени p, равна k * n.
+    Другими словами: Существует ли целое число k такое, что : (a ^ p + b ^ (p+1) + c ^(p+2) + d ^ (p+3) + ...) = n * k
+    Если это так, то мы вернем k, если нет, то вернем -1.
+    Примечание: n и p всегда задаются как строго положительные целые числа.`,
+    example: `digPow(89, 1) должен вернуть 1,\nтак как 8¹ + 9² = 89 = 89 * 1\n\ndigPow(92, 1) должен вернуть -1,\nтак как не существует k, например, 9¹ + 2² = 92 * k\n\ndigPow(695, 2) должен вернуть 2,\nтак как 6² + 9³ + 5⁴= 1390 = 695 * 2\n\ndigPow(46288, 3) должен вернуть 51,\nтак как 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51`,
+    startCode: `function digPow(n, p) {\n  // Ваш код...\n\t\n}`,
+    handleFunction: handlePlayingDigits,
   },
 ];
