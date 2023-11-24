@@ -15,6 +15,7 @@ import {
   handleReversedString,
   handleSheep,
   handleShortestWord,
+  handleSmallestValue,
   handleSumPositive,
   handleTwoWordName,
 } from './dataSolutions';
@@ -202,5 +203,14 @@ export const dataProblems: InterfaceDataProblems[] = [
     example: `digPow(89, 1) должен вернуть 1,\nтак как 8¹ + 9² = 89 = 89 * 1\n\ndigPow(92, 1) должен вернуть -1,\nтак как не существует k, например, 9¹ + 2² = 92 * k\n\ndigPow(695, 2) должен вернуть 2,\nтак как 6² + 9³ + 5⁴= 1390 = 695 * 2\n\ndigPow(46288, 3) должен вернуть 51,\nтак как 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51`,
     startCode: `function digPow(n, p) {\n  // Ваш код...\n\t\n}`,
     handleFunction: handlePlayingDigits,
+  },
+  {
+    slug: 'smallest-value',
+    title: 'Наименьшее значение массива',
+    problem: `Напишите функцию, которая может возвращать наименьшее значение массива или индекс этого значения. Второй параметр функции определяет, что она должна возвращать - значение или индекс.
+    Предположим, что первым параметром всегда будет массив, содержащий не менее 1 числа и не имеющий дубликатов. Предположим, что вторым параметром будет строка, содержащая одно из двух значений: 'value' и 'index'.`,
+    example: `min([1,2,3,4,5], 'value') -> 1\nmin([1,2,3,4,5], 'index') -> 0\n`,
+    startCode: `function min(arr, toReturn) {\n  // Ваш код...\n\t\n}`,
+    handleFunction: handleSmallestValue,
   },
 ];

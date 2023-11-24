@@ -1,17 +1,22 @@
 .line {
   width: 60px;
   height: 2px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 
   background: var(--coral);
 }
 
-.typingTitle {
+.title {
   height: 90px;
   width: 330px;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 
-.typingText {
+.message {
   height: 120px;
+  margin-bottom: 60px;
+}
+
+.text {
+  font-size: 18px;
 }

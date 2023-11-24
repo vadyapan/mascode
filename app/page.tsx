@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
-import { Button, TypingInfo } from '@/components';
+import { MainInfo } from '@/components';
 import { listParts } from '@/data/listParts';
 import styles from './page.module.css';
 
@@ -22,10 +21,7 @@ export default function Home(): JSX.Element {
       <main className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.info}>
-            <TypingInfo />
-            <Link href={'/tasks/part'}>
-              <Button apperance="present">Начать</Button>
-            </Link>
+            <MainInfo />
           </div>
           <div className={styles.cards}>
             {listParts.map((card) => (

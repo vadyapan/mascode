@@ -10,6 +10,6 @@ export * from './Icons/Close';
 export * from './ColorSchemeSwitcher/ColorSchemeSwitcher';
 export * from './CodeEditor/CodeEditor';
 export * from './NavBar/NavBar';
-export * from './TypingInfo/TypingInfo';
+export * from './MainInfo/MainInfo';
 export * from './Notifications/Notifications';
 export * from './Modal/Modal';

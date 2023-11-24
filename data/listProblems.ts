@@ -87,6 +87,10 @@ export const listProblems: InterfaceListProblems[] = [
         slug: 'playing-with-digits',
         title: 'Игра с числами',
       },
+      {
+        slug: 'smallest-value',
+        title: 'Наименьшее значение массива',
+      },
     ],
   },
 ];

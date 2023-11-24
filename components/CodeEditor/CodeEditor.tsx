@@ -41,7 +41,6 @@ export const CodeEditor: FC<CodeEditorProps> = ({
       loading={<Spinner />}
       options={{
         wordWrap: 'on',
-        folding: false,
         minimap: {
           enabled: false,
         },
@@ -55,7 +54,7 @@ export const CodeEditor: FC<CodeEditorProps> = ({
         lineNumbersMinChars: 2,
         overviewRulerLanes: 0,
         fontFamily: 'var(--font-notoSans)',
-        fontSize: 14.5,
+        fontSize: 14,
         matchBrackets: 'never',
       }}
     />

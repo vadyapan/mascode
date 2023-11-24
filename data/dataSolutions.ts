@@ -321,3 +321,16 @@ export const handlePlayingDigits = (fn: any): boolean => {
     return false;
   }
 };
+
+export const handleSmallestValue = (fn: any): boolean => {
+  try {
+    assert.deepEqual(fn([1, 2, 3, 4, 5], 'value'), 1);
+    assert.deepEqual(fn([1, 2, 3, 4, 5], 'index'), 0);
+    return true;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(`Исправьте ошибки: ${error.message}`);
+    }
+    return false;
+  }
+};
