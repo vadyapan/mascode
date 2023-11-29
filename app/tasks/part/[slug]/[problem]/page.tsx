@@ -14,6 +14,7 @@ import { dataProblems } from '@/data/dataProblems';
 import styles from './page.module.css';
 import { useSolved } from '@/context/useSolved';
 import Modal from '@/components/Modal/Modal';
+import { createPortal } from 'react-dom';
 
 export default function Problem({
   params,
@@ -92,17 +93,19 @@ export default function Problem({
           </div>
         </div>
       ))}
-      <>
-        <Modal open={openModal} onClose={() => setOpenModal(false)}>
-          <H tag="h3">Не можешь решить задачу? 🤔</H>
-          <H tag="h3">Занимайся с ментором!</H>
-          <Button className={styles.messageBtn} apperance="primary">
-            <a href="https://t.me/vadyapan" target="_blank">
-              Написать ментору
-            </a>
-          </Button>
-        </Modal>
-      </>
+      {openModal &&
+        createPortal(
+          <Modal open={openModal} onClose={() => setOpenModal(false)}>
+            <H tag="h3">Не можешь решить задачу? 🤔</H>
+            <H tag="h3">Занимайся с ментором!</H>
+            <Button className={styles.messageBtn} apperance="primary">
+              <a href="https://t.me/vadyapan" target="_blank">
+                Написать ментору
+              </a>
+            </Button>
+          </Modal>,
+          document.getElementById('modal-window') as Element,
+        )}
     </>
   );
 }

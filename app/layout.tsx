@@ -52,6 +52,7 @@ export default function RootLayout({
           lang="ru"
           className={`${raleway.variable} ${ibmPlexSans.variable} ${notoSans.variable} ${caveat.variable}`}>
           <body>
+            <div id="modal-window" />
             <Header />
             {children}
           </body>
