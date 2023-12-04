@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-export const ArrowRight: FC = () => {
+export const ArrowRightIcon: FC = () => {
   return (
     <svg
       width="25"

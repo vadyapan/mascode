@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, ReactNode, FC } from 'react';
 import styles from './Modal.module.css';
-import { Close } from '..';
+import { CloseIcon } from '@/components/Icons/CloseIcon';
 
 interface ModalProps {
   open: boolean;
@@ -28,9 +28,7 @@ const Modal: FC<ModalProps> = ({ open, onClose, children }) => {
     <div className={styles.modal} onClick={handleClose}>
       <div className={styles.modalContent}>
         {children}
-        <button className={styles.closeButton}>
-          {<Close/>}
-        </button>
+        <button className={styles.closeButton}>{<CloseIcon />}</button>
       </div>
     </div>
   );

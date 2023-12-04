@@ -1,4 +1,4 @@
-import { Spinner } from '@/components/Icons/Spinner/Spinner';
+import { Spinner } from '@/components/Spinner/Spinner';
 import { FC } from 'react';
 import styles from './UILoading.module.css';
 

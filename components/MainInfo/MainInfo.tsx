@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { H } from '../UI/H/H';
 import Link from 'next/link';
-import { Button } from '..';
+import { Button } from '../UI/Button/Button';
 import styles from './MainInfo.module.css';
 
 export const MainInfo: FC = () => {

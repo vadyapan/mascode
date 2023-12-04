@@ -1,12 +1,12 @@
 'use client';
-import { H } from '@/components';
+import { H } from '@/components/UI/H/H';
 import Link from 'next/link';
 import { listProblems } from '@/data/listProblems';
-import { useSolved } from '@/context/useSolved';
-import cn from 'classnames';
-import styles from '../page.module.css';
+import { useSolved } from '@/contexts/useSolved';
 import { Suspense } from 'react';
 import Loading from './loading';
+import cn from 'classnames';
+import styles from '../page.module.css';
 
 export default function Tasks({
   params,

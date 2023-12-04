@@ -7,7 +7,7 @@ import {
   Noto_Sans_Mono,
   Caveat,
 } from 'next/font/google';
-import { UserContextProvider } from '@/context/UserContext';
+import { ThemeContextProvider } from '@/contexts/themeContext';
 import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import './globals.css';
@@ -46,7 +46,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <MantineProvider>
-      <UserContextProvider>
+      <ThemeContextProvider>
         <Notifications position="top-center" autoClose={5000} zIndex={2077} />
         <html
           lang="ru"
@@ -57,7 +57,7 @@ export default function RootLayout({
             {children}
           </body>
         </html>
-      </UserContextProvider>
+      </ThemeContextProvider>
     </MantineProvider>
   );
 }

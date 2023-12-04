@@ -1,12 +1,12 @@
 'use client';
 import { FC } from 'react';
 import styles from './ColorSchemeSwitcher.module.css';
-import { Moon } from '@/components/Icons/Moon';
-import { Sun } from '@/components/Icons/Sun';
-import {useScheme} from "@/context/useScheme";
+import { MoonIcon } from '@/components/Icons/MoonIcon';
+import { SunIcon } from '@/components/Icons/SunIcon';
+import { useScheme } from '@/contexts/useScheme';
 
 export const ColorSchemeSwitcher: FC = () => {
- const {userScheme, toggleTheme} = useScheme();
+  const { userScheme, switchTheme } = useScheme();
 
   return (
     <div className={styles.colorSchemeSwitcher}>
@@ -19,8 +19,8 @@ export const ColorSchemeSwitcher: FC = () => {
             : 'Включить светлую тему'
         }
         aria-label={'Поменять тему'}
-        onClick={toggleTheme}>
-        {userScheme === 'light' ? <Sun /> : <Moon />}
+        onClick={switchTheme}>
+        {userScheme === 'light' ? <SunIcon /> : <MoonIcon />}
       </button>
     </div>
   );

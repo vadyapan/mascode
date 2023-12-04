@@ -2,7 +2,7 @@
 import { FC, useEffect } from 'react';
 import { CodeEditorProps } from '@/components/CodeEditor/CodeEditor.props';
 import MonacoEditor, { loader } from '@monaco-editor/react';
-import { Spinner } from '../Icons//Spinner/Spinner';
+import { Spinner } from '@/components/Spinner/Spinner';
 import styles from './CodeEditor.module.css';
 
 export const CodeEditor: FC<CodeEditorProps> = ({

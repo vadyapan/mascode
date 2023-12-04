@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import { NavBarProps } from './NavBar.props';
-import { ArrowLeft } from '..';
-import { ArrowRight } from '../Icons/ArrowRight';
-import styles from './NavBar.module.css';
 import { dataProblems } from '@/data/dataProblems';
+import { ArrowLeftIcon } from '@/components/Icons/ArrowLeftIcon';
+import { ArrowRightIcon } from '@/components/Icons/ArrowRightIcon';
 import cn from 'classnames';
+import styles from './NavBar.module.css';
 
 export const NavBar: FC<NavBarProps> = ({ isMatch }) => {
   const taskIndex = dataProblems.findIndex(
@@ -17,7 +17,7 @@ export const NavBar: FC<NavBarProps> = ({ isMatch }) => {
       <div className={styles.navbar}>
         <Link className={cn(styles.link, styles.linkLeft)} href={'.'}>
           <div className={styles.arrowLeft}>
-            <ArrowLeft />
+            <ArrowLeftIcon />
           </div>
           Назад в список задач
         </Link>
@@ -27,7 +27,7 @@ export const NavBar: FC<NavBarProps> = ({ isMatch }) => {
             href={`${dataProblems[taskIndex + 1].slug}`}>
             Следующая задача
             <div className={styles.arrowRight}>
-              <ArrowRight />
+              <ArrowRightIcon />
             </div>
           </Link>
         )}

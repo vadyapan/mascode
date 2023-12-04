@@ -1,7 +1,7 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "no-re-export"],
   "rules": {
     "semi": "off",
     "@typescript-eslint/semi": ["warn"],
@@ -17,8 +17,8 @@
         "allowExpressions": true
       }
     ],
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/no-var-requires": "warn"
+    "@typescript-eslint/no-var-requires": "warn",
+    "no-re-export/no-re-export": "error"
   },
   "extends": [
     "next/core-web-vitals",

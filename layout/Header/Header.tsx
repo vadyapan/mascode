@@ -2,13 +2,14 @@
 import { FC, useContext } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { UserContext } from '@/context/UserContext';
-import { LogoDark, LogoLight } from '@/components';
-import styles from './Header.module.css';
+import { ThemeContext } from '@/contexts/themeContext';
 import { ColorSchemeSwitcher } from '@/components/ColorSchemeSwitcher/ColorSchemeSwitcher';
+import { LogoLight } from '@/components/Logo/LogoLight';
+import { LogoDark } from '@/components/Logo/LogoDark';
+import styles from './Header.module.css';
 
 export const Header: FC = () => {
-  const { userScheme } = useContext(UserContext);
+  const { userScheme } = useContext(ThemeContext);
   const currentRoute = usePathname();
 
   return (

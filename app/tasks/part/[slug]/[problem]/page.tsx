@@ -1,27 +1,27 @@
 'use client';
-import {
-  NavBar,
-  Button,
-  CodeEditor,
-  H,
-  P,
-  successNotification,
-  errorNotification,
-} from '@/components';
 import { MouseEvent, useContext, useEffect, useState } from 'react';
-import { UserContext } from '@/context/UserContext';
-import { dataProblems } from '@/data/dataProblems';
-import styles from './page.module.css';
-import { useSolved } from '@/context/useSolved';
-import Modal from '@/components/Modal/Modal';
 import { createPortal } from 'react-dom';
+import { ThemeContext } from '@/contexts/themeContext';
+import { dataProblems } from '@/data/dataProblems';
+import Modal from '@/components/Modal/Modal';
+import { NavBar } from '@/components/NavBar/NavBar';
+import {
+  errorNotification,
+  successNotification,
+} from '@/components/Notifications/Notifications';
+import { H } from '@/components/UI/H/H';
+import { P } from '@/components/UI/P/P';
+import { CodeEditor } from '@/components/CodeEditor/CodeEditor';
+import { Button } from '@/components/UI/Button/Button';
+import { useSolved } from '@/contexts/useSolved';
+import styles from './page.module.css';
 
 export default function Problem({
   params,
 }: {
   params: { problem: string };
 }): JSX.Element {
-  const { userScheme } = useContext(UserContext);
+  const { userScheme } = useContext(ThemeContext);
   const [solved, updateSolved] = useSolved();
   const [openModal, setOpenModal] = useState<boolean>(false);
   const isMatch = dataProblems.filter(

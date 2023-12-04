@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-export const Sun: FC = () => {
+export const SunIcon: FC = () => {
   return (
     <svg
       width="30"

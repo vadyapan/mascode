@@ -1,4 +1,4 @@
-import { H } from '@/components';
+import { H } from '@/components/UI/H/H';
 import { listFaq } from '@/data/listFaq';
 import styles from './page.module.css';
 

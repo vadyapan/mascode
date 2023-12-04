@@ -5,26 +5,26 @@ import {
   Context,
   createContext,
   FC,
-  ReactNode, useMemo,
+  ReactNode,
 } from 'react';
 import { applyScheme, getSavedScheme } from '@/utils/colorScheme';
 
 export type ColorScheme = 'light' | 'dark';
 
-interface UserContextType {
+interface ThemeContextType {
   userScheme: ColorScheme;
   setUserScheme: (scheme: ColorScheme) => void;
 }
 
-const defaultValue: UserContextType = {
+const initialValue: ThemeContextType = {
   userScheme: 'light',
   setUserScheme: () => {},
 };
 
-export const UserContext: Context<UserContextType> =
-  createContext(defaultValue);
+export const ThemeContext: Context<ThemeContextType> =
+  createContext(initialValue);
 
-export const UserContextProvider: FC<{ children: ReactNode }> = ({
+export const ThemeContextProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [userScheme, setUserScheme] = useState<ColorScheme>('light');
@@ -38,15 +38,14 @@ export const UserContextProvider: FC<{ children: ReactNode }> = ({
     applyScheme(userScheme);
   }, [userScheme]);
 
-  const defaultScheme = useMemo(() => ({
+  const defaultValue = {
     userScheme: userScheme,
-    setUserScheme: setUserScheme
-  }), [userScheme]);
+    setUserScheme: setUserScheme,
+  };
 
   return (
-    <UserContext.Provider
-      value={defaultScheme}>
+    <ThemeContext.Provider value={defaultValue}>
       {children}
-    </UserContext.Provider>
+    </ThemeContext.Provider>
   );
 };

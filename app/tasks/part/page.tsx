@@ -1,7 +1,7 @@
-import { H } from '@/components';
-import styles from './page.module.css';
+import { H } from '@/components/UI/H/H';
 import Link from 'next/link';
 import { listProblems } from '@/data/listProblems';
+import styles from './page.module.css';
 
 export default function Part(): JSX.Element {
   return (

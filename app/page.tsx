@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
-import { MainInfo } from '@/components';
 import { listParts } from '@/data/listParts';
+import { MainInfo } from '@/components/MainInfo/MainInfo';
 import styles from './page.module.css';
+import { PartCard } from '@/components/PartCard/PartCard';
 
 export const metadata: Metadata = {
   title: 'Mascode | Получи практику программирования на JavaScript',
@@ -25,18 +25,7 @@ export default function Home(): JSX.Element {
           </div>
           <div className={styles.cards}>
             {listParts.map((card) => (
-              <div key={card.id} className={styles.card}>
-                <Image
-                  src={'/book-icon.svg'}
-                  width={53.33}
-                  height={66.67}
-                  alt={'Иконка книги'}
-                />
-                <div className={styles.part}>
-                  <span className={styles.title}>{card.title}</span>
-                  <span className={styles.desc}>{card.desc}</span>
-                </div>
-              </div>
+              <PartCard key={card.id} title={card.title} desc={card.desc} />
             ))}
           </div>
         </div>
