@@ -5,6 +5,8 @@ import { listProblems } from '@/data/listProblems';
 import { useSolved } from '@/context/useSolved';
 import cn from 'classnames';
 import styles from '../page.module.css';
+import { Suspense } from 'react';
+import Loading from './loading';
 
 export default function Tasks({
   params,
@@ -17,7 +19,7 @@ export default function Tasks({
   const [solved] = useSolved();
 
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <div className={styles.wrapper}>
         <H tag="h5" className={styles.title}>
           Выберите задачу:
@@ -40,6 +42,6 @@ export default function Tasks({
           </ul>
         </div>
       </div>
-    </>
+    </Suspense>
   );
 }
