@@ -26,9 +26,11 @@ const Modal: FC<ModalProps> = ({ open, onClose, children }) => {
 
   return (
     <div className={styles.modal} onClick={handleClose}>
-      <div className={styles.modalContent}>
+      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         {children}
-        <button className={styles.closeButton}>{<CloseIcon />}</button>
+        <button className={styles.closeButton} onClick={handleClose}>
+          {<CloseIcon />}
+        </button>
       </div>
     </div>
   );
