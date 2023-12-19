@@ -12,12 +12,10 @@ export default function Part(): JSX.Element {
         </H>
         <div className={styles.list}>
           <ul className={styles.links}>
-            {listProblems.map((problemPart) => (
-              <li key={problemPart.partId}>
-                <Link
-                  className={styles.link}
-                  href={`part/${problemPart.partSlug}`}>
-                  {problemPart.partId}. {problemPart.partTitle}
+            {listProblems.map(({ partId, partSlug, partTitle }) => (
+              <li key={partId}>
+                <Link className={styles.link} href={`part/${partSlug}`}>
+                  {partId}. {partTitle}
                 </Link>
               </li>
             ))}

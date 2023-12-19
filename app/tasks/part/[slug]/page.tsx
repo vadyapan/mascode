@@ -3,8 +3,6 @@ import { H } from '@/components/UI/H/H';
 import Link from 'next/link';
 import { listProblems } from '@/data/listProblems';
 import { useSolved } from '@/contexts/useSolved';
-import { Suspense } from 'react';
-import Loading from './loading';
 import cn from 'classnames';
 import styles from '../page.module.css';
 
@@ -13,35 +11,30 @@ export default function Tasks({
 }: {
   params: { slug: string };
 }): JSX.Element {
+  const [isSolved] = useSolved();
   const isMatch = listProblems.filter((task) => task.partSlug === params.slug);
   const [{ partSlug, tasks }] = isMatch;
 
-  const [solved] = useSolved();
-
   return (
-    <Suspense fallback={<Loading />}>
-      <div className={styles.wrapper}>
-        <H tag="h5" className={styles.title}>
-          Выберите задачу:
-        </H>
-        <div className={styles.listTask}>
-          <ul className={styles.links}>
-            {tasks.map((task) => (
-              <li key={task.slug}>
-                {!solved[task.slug] && (
-                  <div className={cn(styles.circle)}></div>
-                )}
-                {solved[task.slug] && (
-                  <div className={cn(styles.circle, styles.active)}></div>
-                )}
-                <Link className={styles.link} href={`${partSlug}/${task.slug}`}>
-                  {task.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <div className={styles.wrapper}>
+      <H tag="h5" className={styles.title}>
+        Выберите задачу:
+      </H>
+      <div className={styles.listTask}>
+        <ul className={styles.links}>
+          {tasks.map(({ slug, title }) => (
+            <li key={slug}>
+              {!isSolved[slug] && <div className={cn(styles.circle)}></div>}
+              {isSolved[slug] && (
+                <div className={cn(styles.circle, styles.active)}></div>
+              )}
+              <Link className={styles.link} href={`${partSlug}/${slug}`}>
+                {title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-    </Suspense>
+    </div>
   );
 }

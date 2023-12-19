@@ -7,9 +7,9 @@ import { ArrowRightIcon } from '@/components/Icons/ArrowRightIcon';
 import cn from 'classnames';
 import styles from './NavBar.module.css';
 
-export const NavBar: FC<NavBarProps> = ({ isMatch }) => {
-  const taskIndex = dataProblems.findIndex(
-    (task) => task.slug === isMatch[0].slug,
+export const NavBar: FC<NavBarProps> = ({ matchSlug }) => {
+  const problemIndex = dataProblems.findIndex(
+    (problem) => problem.slug === matchSlug,
   );
 
   return (
@@ -21,10 +21,10 @@ export const NavBar: FC<NavBarProps> = ({ isMatch }) => {
           </div>
           Назад в список задач
         </Link>
-        {dataProblems[taskIndex + 1] && (
+        {dataProblems[problemIndex + 1] && (
           <Link
             className={cn(styles.link, styles.linkRight)}
-            href={`${dataProblems[taskIndex + 1].slug}`}>
+            href={`${dataProblems[problemIndex + 1].slug}`}>
             Следующая задача
             <div className={styles.arrowRight}>
               <ArrowRightIcon />

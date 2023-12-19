@@ -6,8 +6,8 @@ import { Spinner } from '@/components/Spinner/Spinner';
 import styles from './CodeEditor.module.css';
 
 export const CodeEditor: FC<CodeEditorProps> = ({
-  codeChange,
-  setCodeChange,
+  userCode,
+  setUserCode,
   userScheme,
 }) => {
   const colorScheme = userScheme === 'light' ? 'vs' : 'vs-dark';
@@ -33,11 +33,11 @@ export const CodeEditor: FC<CodeEditorProps> = ({
   return (
     <MonacoEditor
       height="50vh"
-      defaultValue={codeChange}
+      defaultValue={userCode}
       defaultLanguage="javascript"
       theme="myTheme"
       className={styles.editor}
-      onChange={(e) => setCodeChange(e || codeChange)}
+      onChange={(e) => setUserCode(e || userCode)}
       loading={<Spinner />}
       options={{
         wordWrap: 'on',

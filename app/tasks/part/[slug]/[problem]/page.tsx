@@ -22,14 +22,24 @@ export default function Problem({
   params: { problem: string };
 }): JSX.Element {
   const { userScheme } = useContext(ThemeContext);
-  const [solved, updateSolved] = useSolved();
+  const [isSolved, setIsSolved] = useSolved();
   const [openModal, setOpenModal] = useState<boolean>(false);
   const isMatch = dataProblems.filter(
     (problem) => problem.slug === params.problem,
   );
-  const [codeChange, setCodeChange] = useState(
-    isMatch.map((task) => task.startCode).join(''),
-  );
+  const [
+    {
+      slug,
+      title,
+      problem,
+      example,
+      exampleSecond,
+      problemSecond,
+      startCode,
+      handleFunction,
+    },
+  ] = isMatch;
+  const [userCode, setUserCode] = useState(startCode);
 
   useEffect(() => {
     setInterval(() => {
@@ -40,14 +50,11 @@ export default function Problem({
   const handleCheckCode = async (e: MouseEvent): Promise<void> => {
     e.preventDefault;
     try {
-      const userFn = eval(`(${codeChange})`);
-      const currentAnswer = await Promise.all(
-        isMatch.map((task) => task.handleFunction(userFn)),
-      );
-      const isSuccessAnswer = currentAnswer[0];
+      const userFn = new Function(`return ${userCode}`)();
+      const isSuccessAnswer = handleFunction(userFn);
 
       if (isSuccessAnswer) {
-        updateSolved({ ...solved, [isMatch[0].slug]: true });
+        setIsSolved({ ...isSolved, [slug]: true });
         successNotification();
       } else {
         errorNotification();
@@ -62,37 +69,33 @@ export default function Problem({
 
   return (
     <>
-      <NavBar isMatch={isMatch} />
-      {isMatch.map((task) => (
-        <div className={styles.container} key={task.slug}>
-          <div className={styles.problem}>
-            <H tag="h4">{task.title}</H>
-            <P>{task.problem}</P>
-            {task.example && (
-              <pre className={styles.example}>{task.example}</pre>
-            )}
-            {task.problemSecond && <P>{task.problemSecond}</P>}
-            {task.exampleSecond && (
-              <pre className={styles.example}>{task.exampleSecond}</pre>
-            )}
-          </div>
-          <div className={styles.workspace}>
-            <CodeEditor
-              codeChange={codeChange}
-              setCodeChange={setCodeChange}
-              userScheme={userScheme}
-            />
-            <div className={styles.buttonSection}>
-              <Button
-                className={styles.testButton}
-                apperance="ghost"
-                onClick={handleCheckCode}>
-                Проверить решение
-              </Button>
-            </div>
+      <NavBar matchSlug={slug} />
+      <div className={styles.container} key={slug}>
+        <div className={styles.problem}>
+          <H tag="h4">{title}</H>
+          <P>{problem}</P>
+          {example && <pre className={styles.example}>{example}</pre>}
+          {problemSecond && <P>{problemSecond}</P>}
+          {exampleSecond && (
+            <pre className={styles.example}>{exampleSecond}</pre>
+          )}
+        </div>
+        <div className={styles.workspace}>
+          <CodeEditor
+            userCode={userCode}
+            setUserCode={setUserCode}
+            userScheme={userScheme}
+          />
+          <div className={styles.buttonSection}>
+            <Button
+              className={styles.testButton}
+              apperance="ghost"
+              onClick={handleCheckCode}>
+              Проверить решение
+            </Button>
           </div>
         </div>
-      ))}
+      </div>
       {openModal &&
         createPortal(
           <Modal open={openModal} onClose={() => setOpenModal(false)}>
