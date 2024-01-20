@@ -24,9 +24,9 @@ export default function Tasks({
         <ul className={styles.links}>
           {tasks.map(({ slug, title }) => (
             <li key={slug}>
-              {!isSolved[slug] && <div className={cn(styles.circle)}></div>}
+              {!isSolved[slug] && <div className={cn(styles.circle)} />}
               {isSolved[slug] && (
-                <div className={cn(styles.circle, styles.active)}></div>
+                <div className={cn(styles.circle, styles.active)} />
               )}
               <Link className={styles.link} href={`${partSlug}/${slug}`}>
                 {title}

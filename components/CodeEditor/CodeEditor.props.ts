@@ -2,6 +2,6 @@ type ColorScheme = 'light' | 'dark' | 'auto';
 
 export interface CodeEditorProps {
   userCode: string;
-  setUserCode: (str: string) => void;
+  setUserCode: (code: string) => void;
   userScheme: ColorScheme;
 }

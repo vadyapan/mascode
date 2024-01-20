@@ -30,14 +30,18 @@ export const CodeEditor: FC<CodeEditorProps> = ({
     });
   }, [colorScheme, colorBackground]);
 
+  const handleCode = (event: string): void => {
+    setUserCode(event);
+  };
+
   return (
     <MonacoEditor
       height="50vh"
-      defaultValue={userCode}
+      defaultValue={`${userCode}`}
       defaultLanguage="javascript"
       theme="myTheme"
       className={styles.editor}
-      onChange={(e) => setUserCode(e || userCode)}
+      onChange={(event) => handleCode(event || userCode)}
       loading={<Spinner />}
       options={{
         wordWrap: 'on',

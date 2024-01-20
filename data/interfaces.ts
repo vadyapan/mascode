@@ -1,17 +1,18 @@
-export interface InterfaceListProblems {
-  part: string;
-  partTitle: string;
-  partSlug: string;
-  partId: number;
-  tasks: InterfaceProblem[];
-}
-
-export interface InterfaceProblem {
+export interface Problem {
   slug: string;
   title: string;
 }
 
-export interface InterfaceDataProblems {
+export interface ListProblems {
+  part: string;
+  partTitle: string;
+  partSlug: string;
+  partId: number;
+  tasks: Problem[];
+}
+
+export interface DataProblems {
+  id?: number;
   slug: string;
   title: string;
   problem: string;
@@ -19,5 +20,10 @@ export interface InterfaceDataProblems {
   problemSecond?: string;
   exampleSecond?: string;
   startCode: string;
+  handleFunction: (fn: any) => boolean;
+}
+
+export interface ListSolutions {
+  slug: string;
   handleFunction: (fn: any) => boolean;
 }

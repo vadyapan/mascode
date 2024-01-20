@@ -19,9 +19,9 @@ import {
   handleSumPositive,
   handleTwoWordName,
 } from './dataSolutions';
-import { InterfaceDataProblems } from './interfaces';
+import { DataProblems } from './interfaces';
 
-export const dataProblems: InterfaceDataProblems[] = [
+export const dataProblems: DataProblems[] = [
   {
     slug: 'even-or-odd',
     title: 'Четное или нечетное',
