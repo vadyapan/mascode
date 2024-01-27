@@ -1,37 +1,31 @@
 'use client';
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
-import { NavBarProps, SlugProblem } from './NavBar.props';
+import { NavBarProps } from './NavBar.props';
 import { ArrowLeftIcon } from '@/components/Icons/ArrowLeftIcon';
 import { ArrowRightIcon } from '@/components/Icons/ArrowRightIcon';
-import supabase from '@/config/supabase/supabaseClient';
+import { listProblems } from '@/data/listProblems';
 import cn from 'classnames';
+import { ListTasks } from '@/types/interfaces';
 import styles from './NavBar.module.css';
 
-export const NavBar: FC<NavBarProps> = ({ matchSlug }) => {
-  const [fetchSlug, setFetchSlug] = useState<SlugProblem[]>([]);
+export const NavBar: FC<NavBarProps> = ({ part, task }) => {
+  let listTasks: ListTasks[] = [];
+  let taskIndex: number = -1;
 
-  useEffect(() => {
-    const fetchProblem = async (): Promise<void> => {
-      const { data, error } = await supabase.from('problems').select('slug');
-
-      if (error) {
-        console.log(error);
+  for (let i = 0; i < listProblems.length; i++) {
+    if (listProblems[i].slug === part) {
+      listTasks = listProblems[i].tasks;
+      taskIndex = listProblems[i].tasks.findIndex(
+        (problem) => problem.slug === task,
+      );
+      if (taskIndex !== -1) {
+        break;
       }
+    }
+  }
 
-      if (data) {
-        setFetchSlug(data);
-      }
-    };
-
-    fetchProblem();
-  }, []);
-
-  if (fetchSlug) {
-    const problemIndex = fetchSlug.findIndex(
-      (problem) => problem.slug === matchSlug,
-    );
-
+  if (listTasks) {
     return (
       <div className={styles.wrapper}>
         <div className={styles.navbar}>
@@ -41,10 +35,10 @@ export const NavBar: FC<NavBarProps> = ({ matchSlug }) => {
             </div>
             Назад в список задач
           </Link>
-          {fetchSlug[problemIndex + 1] && (
+          {listTasks[taskIndex + 1] && (
             <Link
               className={cn(styles.link, styles.linkRight)}
-              href={`${fetchSlug[problemIndex + 1].slug}`}>
+              href={`${listTasks[taskIndex + 1].slug}`}>
               Следующая задача
               <div className={styles.arrowRight}>
                 <ArrowRightIcon />

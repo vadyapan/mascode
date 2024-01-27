@@ -1,12 +1,7 @@
 'use client';
 import { ReactNode } from 'react';
 import { Header } from '@/layout/Header/Header';
-import {
-  Raleway,
-  IBM_Plex_Sans,
-  Noto_Sans_Mono,
-  Caveat,
-} from 'next/font/google';
+import { Raleway, IBM_Plex_Sans, Caveat } from 'next/font/google';
 import { ThemeContextProvider } from '@/contexts/themeContext';
 import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
@@ -23,13 +18,6 @@ const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600'],
   variable: '--font-ibm-plex',
-  display: 'swap',
-});
-
-const notoSans = Noto_Sans_Mono({
-  subsets: ['latin'],
-  weight: ['500'],
-  variable: '--font-notoSans',
   display: 'swap',
 });
 
@@ -50,7 +38,7 @@ export default function RootLayout({
         <Notifications position="top-center" autoClose={5000} zIndex={2077} />
         <html
           lang="ru"
-          className={`${raleway.variable} ${ibmPlexSans.variable} ${notoSans.variable} ${caveat.variable}`}>
+          className={`${raleway.variable} ${ibmPlexSans.variable} ${caveat.variable}`}>
           <body>
             <div id="modal-window" />
             <Header />

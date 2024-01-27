@@ -3,7 +3,7 @@ import Tasks from './page';
 
 describe('Tasks page test', () => {
   it('text in the link', () => {
-    render(<Tasks params={{ slug: 'one' }} />);
+    render(<Tasks params={{ part: 'one' }} />);
 
     const myElem = screen.getByText('Четное или нечетное');
 

@@ -1,96 +1,155 @@
-import { ListProblems } from '@/data/interfaces';
+import { ListProblems } from '@/types/interfaces';
+import {
+  handleBuildSquare,
+  handleCenturyFromYear,
+  handleCreatePhoneNumber,
+  handleCreditCardMask,
+  handleEvenOrOdd,
+  handleGrowthPopulation,
+  handleHowManyArguments,
+  handleLeapYears,
+  handleListFiltering,
+  handleNumberVerifier,
+  handleOppositeNumber,
+  handlePlayingDigits,
+  handleRemoveFirstAndLastCharacter,
+  handleReversedString,
+  handleSheep,
+  handleShortestWord,
+  handleSmallestValue,
+  handleSumPositive,
+  handleTwoWordName,
+} from './dataSolutions';
 
 export const listProblems: ListProblems[] = [
   {
+    id: 1,
+    slug: 'one',
     part: 'Часть 1',
-    partTitle: 'Примитивы и циклы',
-    partSlug: 'one',
-    partId: 1,
+    title: 'Примитивы и циклы',
     tasks: [
       {
+        id: 1,
         slug: 'even-or-odd',
         title: 'Четное или нечетное',
+        handleFunction: handleEvenOrOdd,
       },
       {
+        id: 2,
         slug: 'opposite-number',
         title: 'Противоположное число',
+        handleFunction: handleOppositeNumber,
       },
       {
+        id: 3,
         slug: 'century-from-year',
         title: 'Век за веком',
+        handleFunction: handleCenturyFromYear,
       },
-      // {
-      //   slug: 'two-word-name',
-      //   title: 'Инициалы имени',
-      // },
-      // {
-      //   slug: 'reversed-string',
-      //   title: 'Перевернутая строка',
-      // },
-      // {
-      //   slug: 'credit-card-mask',
-      //   title: 'Маска для кредитных карт',
-      // },
-      // {
-      //   slug: 'remove-first-and-last-character',
-      //   title: 'Удалить первый и последний символ',
-      // },
-      // {
-      //   slug: 'create-phone-number',
-      //   title: 'Создайте номер телефона',
-      // },
-      // {
-      //   slug: 'how-many-arguments',
-      //   title: 'Сколько аргументов',
-      // },
-      // {
-      //   slug: 'leap-years',
-      //   title: 'Високосные года',
-      // },
-      // {
-      //   slug: 'sheep',
-      //   title: 'Просто считай овец',
-      // },
-      // {
-      //   slug: 'growth-of-a-population',
-      //   title: 'Рост численности населения',
-      // },
-      // {
-      //   slug: 'number-verifier',
-      //   title: 'Верификатор идеальных чисел',
-      // },
+      {
+        id: 4,
+        slug: 'two-word-name',
+        title: 'Инициалы имени',
+        handleFunction: handleTwoWordName,
+      },
+      {
+        id: 5,
+        slug: 'reversed-string',
+        title: 'Перевернутая строка',
+        handleFunction: handleReversedString,
+      },
+      {
+        id: 6,
+        slug: 'credit-card-mask',
+        title: 'Маска для кредитных карт',
+        handleFunction: handleCreditCardMask,
+      },
+      {
+        id: 7,
+        slug: 'remove-first-and-last-character',
+        title: 'Удалить первый и последний символ',
+        handleFunction: handleRemoveFirstAndLastCharacter,
+      },
+      {
+        id: 8,
+        slug: 'create-phone-number',
+        title: 'Создайте номер телефона',
+        handleFunction: handleCreatePhoneNumber,
+      },
+      {
+        id: 9,
+        slug: 'how-many-arguments',
+        title: 'Сколько аргументов',
+        handleFunction: handleHowManyArguments,
+      },
+      {
+        id: 10,
+        slug: 'leap-years',
+        title: 'Високосные года',
+        handleFunction: handleLeapYears,
+      },
+      {
+        id: 11,
+        slug: 'sheep',
+        title: 'Просто считай овец',
+        handleFunction: handleSheep,
+      },
+      {
+        id: 12,
+        slug: 'growth-of-a-population',
+        title: 'Рост численности населения',
+        handleFunction: handleGrowthPopulation,
+      },
+      {
+        id: 13,
+        slug: 'number-verifier',
+        title: 'Верификатор идеальных чисел',
+        handleFunction: handleNumberVerifier,
+      },
     ],
   },
-  // {
-  //   part: 'Часть 2',
-  //   partTitle: 'Массивы и строки',
-  //   partSlug: 'two',
-  //   partId: 2,
-  //   tasks: [
-  //     {
-  //       slug: 'sum-of-positive',
-  //       title: 'Сумма положительных',
-  //     },
-  //     {
-  //       slug: 'shortest-word',
-  //       title: 'Самое короткое слово',
-  //     },
-  //     {
-  //       slug: 'list-filtering',
-  //       title: 'Фильтрация списков',
-  //     },
-  //     {
-  //       slug: 'build-a-square',
-  //       title: 'Построить квадрат',
-  //     },
-  //     {
-  //       slug: 'playing-with-digits',
-  //       title: 'Игра с числами',
-  //     },
-  //     {
-  //       slug: 'smallest-value',
-  //       title: 'Наименьшее значение массива',
-  //     },
-  //   ],
-  // },
+  {
+    id: 2,
+    slug: 'two',
+    part: 'Часть 2',
+    title: 'Массивы и строки',
+    tasks: [
+      {
+        id: 1,
+        slug: 'sum-of-positive',
+        title: 'Сумма положительных',
+        handleFunction: handleSumPositive,
+      },
+      {
+        id: 2,
+        slug: 'shortest-word',
+        title: 'Самое короткое слово',
+        handleFunction: handleShortestWord,
+      },
+      {
+        id: 3,
+        slug: 'list-filtering',
+        title: 'Фильтрация списков',
+        handleFunction: handleListFiltering,
+      },
+      {
+        id: 4,
+        slug: 'build-a-square',
+        title: 'Построить квадрат',
+        handleFunction: handleBuildSquare,
+      },
+      {
+        id: 5,
+        slug: 'playing-with-digits',
+        title: 'Игра с числами',
+        handleFunction: handlePlayingDigits,
+      },
+      {
+        id: 6,
+        slug: 'smallest-value',
+        title: 'Наименьшее значение массива',
+        handleFunction: handleSmallestValue,
+      },
+    ],
+  },
 ];
