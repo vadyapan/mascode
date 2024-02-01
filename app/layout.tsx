@@ -40,9 +40,9 @@ export default function RootLayout({
           lang="ru"
           className={`${raleway.variable} ${ibmPlexSans.variable} ${caveat.variable}`}>
           <body>
-            <div id="modal-window" />
             <Header />
             {children}
+            <div id="modal-window" />
           </body>
         </html>
       </ThemeContextProvider>

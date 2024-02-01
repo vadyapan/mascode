@@ -5,6 +5,6 @@ export interface ButtonProps
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  apperance: 'present' | 'success' | 'primary' | 'ghost';
+  appearance: 'present' | 'success' | 'primary' | 'ghost';
   children: ReactNode;
 }

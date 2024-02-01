@@ -1,29 +1,26 @@
 'use client';
-import { MouseEvent, useContext, useEffect, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ThemeContext } from '@/contexts/themeContext';
 import Modal from '@/components/Modal/Modal';
 import { NavBar } from '@/components/NavBar/NavBar';
 import {
   errorNotification,
   successNotification,
 } from '@/components/Notifications/Notifications';
-import { H } from '@/components/UI/H/H';
-import { P } from '@/components/UI/P/P';
-import { CodeEditor } from '@/components/CodeEditor/CodeEditor';
 import { Button } from '@/components/UI/Button/Button';
 import { useSolved } from '@/contexts/useSolved';
 import { DataProblems } from '@/types/interfaces';
 import { getDataWithOneQueryParam } from '@/utils/getDataWithOneQueryParam';
 import { findTask } from '@/utils/findTask';
+import { Task } from '@/components/Task/Task';
 import styles from './page.module.css';
+import { H } from '@/components/UI/H/H';
 
 export default function Problem({
   params,
 }: {
   params: { part: string; task: string };
 }): JSX.Element {
-  const { userScheme } = useContext(ThemeContext);
   const [isSolved, setIsSolved] = useSolved();
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [getData, setGetData] = useState<DataProblems>();
@@ -36,12 +33,11 @@ export default function Problem({
   useEffect(() => {
     const getProblem = async (): Promise<void> => {
       try {
-        const requestData = {
+        getDataWithOneQueryParam<DataProblems[]>({
           path: 'problems',
           query: 'slug',
           param: params.task,
-        };
-        getDataWithOneQueryParam<DataProblems[]>(requestData)
+        })
           .then((data) => {
             setGetData(data[0]);
             setUserCode(data[0].startCode);
@@ -90,34 +86,12 @@ export default function Problem({
       {getData && (
         <>
           <NavBar part={params.part} task={params.task} />
-          <div className={styles.container} key={getData.slug}>
-            <div className={styles.problem}>
-              <H tag="h4">{getData.title}</H>
-              <P>{getData.problem}</P>
-              {getData.example && (
-                <pre className={styles.example}>{getData.example}</pre>
-              )}
-              {getData.problemSecond && <P>{getData.problemSecond}</P>}
-              {getData.exampleSecond && (
-                <pre className={styles.example}>{getData.exampleSecond}</pre>
-              )}
-            </div>
-            <div className={styles.workspace}>
-              <CodeEditor
-                userCode={`${userCode}`}
-                setUserCode={setUserCode}
-                userScheme={userScheme}
-              />
-              <div className={styles.buttonSection}>
-                <Button
-                  className={styles.testButton}
-                  apperance="ghost"
-                  onClick={handleCheckCode}>
-                  Проверить решение
-                </Button>
-              </div>
-            </div>
-          </div>
+          <Task
+            task={getData}
+            userCode={userCode}
+            setUserCode={setUserCode}
+            handleCheckCode={handleCheckCode}
+          />
         </>
       )}
       {openModal &&
@@ -125,7 +99,7 @@ export default function Problem({
           <Modal open={openModal} onClose={() => setOpenModal(false)}>
             <H tag="h3">Не можешь решить задачу? 🤔</H>
             <H tag="h3">Занимайся с ментором!</H>
-            <Button className={styles.messageBtn} apperance="primary">
+            <Button className={styles.messageBtn} appearance="primary">
               <a href="https://t.me/vadyapan" target="_blank">
                 Написать ментору
               </a>
