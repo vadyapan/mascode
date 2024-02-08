@@ -21,7 +21,7 @@ export const MainInfo: FC = () => {
         </p>
       </div>
       <Link href={'/tasks/part'}>
-        <Button apperance="present">Начать</Button>
+        <Button appearance="present">Начать</Button>
       </Link>
     </>
   );

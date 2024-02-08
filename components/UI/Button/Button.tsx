@@ -4,7 +4,7 @@ import styles from './Button.module.css';
 import { FC } from 'react';
 
 export const Button: FC<ButtonProps> = ({
-  apperance,
+  appearance,
   children,
   className,
   ...props
@@ -12,10 +12,10 @@ export const Button: FC<ButtonProps> = ({
   return (
     <button
       className={cn(styles.button, className, {
-        [styles.present]: apperance == 'present',
-        [styles.success]: apperance == 'success',
-        [styles.primary]: apperance == 'primary',
-        [styles.ghost]: apperance == 'ghost',
+        [styles.present]: appearance == 'present',
+        [styles.success]: appearance == 'success',
+        [styles.primary]: appearance == 'primary',
+        [styles.ghost]: appearance == 'ghost',
       })}
       {...props}>
       {children}
