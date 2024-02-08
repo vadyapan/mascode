@@ -1,4 +1,4 @@
-const LS_COLOR_SCHEME_KEY = 'mascode:theme';
+import { LS_COLOR_SCHEME_KEY } from '@/constants/localStorage/localStorage';
 
 export function applyScheme(scheme: 'dark' | 'light'): void {
   document.documentElement.setAttribute('scheme', scheme);

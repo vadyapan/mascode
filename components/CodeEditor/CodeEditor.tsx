@@ -9,6 +9,7 @@ export const CodeEditor: FC<CodeEditorProps> = ({
   userCode,
   setUserCode,
   userScheme,
+  editorFontSize,
 }) => {
   const colorScheme = userScheme === 'light' ? 'vs' : 'vs-dark';
   const colorBackground = userScheme === 'light' ? '#ffffff' : '#161A25';
@@ -57,7 +58,7 @@ export const CodeEditor: FC<CodeEditorProps> = ({
         overviewRulerBorder: false,
         lineNumbersMinChars: 2,
         overviewRulerLanes: 0,
-        fontSize: 14,
+        fontSize: editorFontSize,
         matchBrackets: 'never',
       }}
     />

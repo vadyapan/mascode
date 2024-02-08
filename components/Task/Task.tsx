@@ -1,5 +1,5 @@
 'use client';
-import { FC, useContext } from 'react';
+import { FC, useContext, useState } from 'react';
 import { ThemeContext } from '@/contexts/themeContext';
 import { CodeEditor } from '../CodeEditor/CodeEditor';
 import { Button } from '../UI/Button/Button';
@@ -16,6 +16,19 @@ export const Task: FC<TaskProps> = ({
 }) => {
   const { userScheme } = useContext(ThemeContext);
   const { title, problem, example, problemSecond, exampleSecond } = task;
+  const [editorFontSize, setEditorFontSize] = useState<number>(14);
+
+  const handleDecrement = (): boolean | void => {
+    if (editorFontSize <= 10) return;
+
+    setEditorFontSize((prev) => (prev -= 1));
+  };
+
+  const handleIncrement = (): boolean | void => {
+    if (editorFontSize >= 30) return;
+
+    setEditorFontSize((prev) => (prev += 1));
+  };
 
   return (
     <>
@@ -34,11 +47,27 @@ export const Task: FC<TaskProps> = ({
             userCode={`${userCode}`}
             setUserCode={setUserCode}
             userScheme={userScheme}
+            editorFontSize={editorFontSize}
           />
           <div className={styles.buttonSection}>
+            <div className={styles.editFontSizeSection}>
+              <button
+                className={styles.fontSizeButton}
+                type="button"
+                onClick={handleDecrement}>
+                -
+              </button>
+              <strong className={styles.fontSize}>{editorFontSize}px</strong>
+              <button
+                className={styles.fontSizeButton}
+                type="button"
+                onClick={handleIncrement}>
+                +
+              </button>
+            </div>
             <Button
               className={styles.testButton}
-              appearance="ghost"
+              appearance="primary"
               onClick={handleCheckCode}>
               Проверить решение
             </Button>

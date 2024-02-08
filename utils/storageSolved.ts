@@ -1,4 +1,4 @@
-const LS_SOLVED_KEY = 'mascode:solved';
+import { LS_SOLVED_KEY } from '@/constants/localStorage/localStorage';
 
 export function saveSolved(solved: Record<string, boolean>): void {
   return window.localStorage.setItem(LS_SOLVED_KEY, JSON.stringify(solved));

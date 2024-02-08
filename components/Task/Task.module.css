@@ -25,16 +25,40 @@
 
 .buttonSection {
   display: flex;
-  justify-content: flex-end;
-}
+  justify-content: space-between;
 
-.buttonSection > button {
   margin-top: 20px;
-  margin-right: 10px;
+  margin-inline: 40px;
 }
 
-.buttonSection .testButton {
-  margin-right: 40px;
+.editFontSizeSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fontSize {
+  color: var(--coral);
+  padding-inline: 10px;
+  cursor: default;
+}
+
+.fontSizeButton {
+  padding: 10px 15px;
+
+  font-size: 14px;
+  font-family: var(--font-ibm-plex);
+  font-weight: 600;
+  text-transform: uppercase;
+
+  color: var(--coral);
+  background-color: var(--middle-coral);
+
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .noTask {
