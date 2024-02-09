@@ -5,4 +5,5 @@ export interface TaskProps {
   userCode?: string;
   setUserCode: (userCode: string) => void;
   handleCheckCode: () => void;
+  errorMsg?: string | null;
 }
