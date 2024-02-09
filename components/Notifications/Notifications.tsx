@@ -5,7 +5,7 @@ import { IconCheck, IconX } from '@tabler/icons-react';
 export const successNotification = (): void => {
   notifications.show({
     id: 'success-notifications',
-    title: 'Тест пройден!',
+    title: 'Тесты пройдены!',
     message: 'Переходите к следующей задаче',
     withCloseButton: false,
     icon: <IconCheck />,
@@ -17,8 +17,8 @@ export const successNotification = (): void => {
 export const errorNotification = (): void => {
   notifications.show({
     id: 'failed-notifications',
-    title: 'Тест не пройден!',
-    message: 'Нажмите ctrl/cmd + shift/option + j для отладки',
+    title: 'Тесты не пройдены!',
+    message: 'Откройте консоль для отладки',
     withCloseButton: false,
     icon: <IconX />,
     color: 'red',

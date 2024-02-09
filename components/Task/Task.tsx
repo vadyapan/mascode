@@ -8,15 +8,18 @@ import { P } from '../UI/P/P';
 import { TaskProps } from './Task.props';
 import styles from './Task.module.css';
 import { LS_FONT_SIZE } from '@/constants/localStorage/localStorage';
+import { Console } from '../Console/Console';
 
 export const Task: FC<TaskProps> = ({
   task,
   userCode,
   setUserCode,
   handleCheckCode,
+  errorMsg,
 }) => {
   const { userScheme } = useContext(ThemeContext);
   const { title, problem, example, problemSecond, exampleSecond } = task;
+  const [isConsole, setIsConsole] = useState<boolean>(false);
   const [editorFontSize, setEditorFontSize] = useState<number>(
     Number(window.localStorage.getItem(LS_FONT_SIZE)) || 14,
   );
@@ -43,17 +46,26 @@ export const Task: FC<TaskProps> = ({
     });
   };
 
+  const handleConsole = (): void => {
+    setIsConsole((prevValue) => !prevValue);
+  };
+
   return (
     <>
       <div className={styles.container}>
         <div className={styles.problem}>
-          <H tag="h4">{title}</H>
-          <P>{problem}</P>
-          {example && <pre className={styles.example}>{example}</pre>}
-          {problemSecond && <P>{problemSecond}</P>}
-          {exampleSecond && (
-            <pre className={styles.example}>{exampleSecond}</pre>
+          {!isConsole && (
+            <>
+              <H tag="h4">{title}</H>
+              <P>{problem}</P>
+              {example && <pre className={styles.example}>{example}</pre>}
+              {problemSecond && <P>{problemSecond}</P>}
+              {exampleSecond && (
+                <pre className={styles.example}>{exampleSecond}</pre>
+              )}
+            </>
           )}
+          {isConsole && <Console errorMsg={errorMsg} />}
         </div>
         <div className={styles.workspace}>
           <CodeEditor
@@ -63,24 +75,31 @@ export const Task: FC<TaskProps> = ({
             editorFontSize={editorFontSize}
           />
           <div className={styles.buttonSection}>
-            <div className={styles.editFontSizeSection}>
+            <div className={styles.actionSection}>
               <button
-                className={styles.fontSizeButton}
+                className={styles.button}
                 type="button"
-                onClick={handleDecrement}>
-                -
+                onClick={handleConsole}>
+                Консоль
               </button>
-              <strong className={styles.fontSize}>{editorFontSize}px</strong>
-              <button
-                className={styles.fontSizeButton}
-                type="button"
-                onClick={handleIncrement}>
-                +
-              </button>
+              <div className={styles.editFontSizeSection}>
+                <button
+                  className={styles.button}
+                  type="button"
+                  onClick={handleDecrement}>
+                  -
+                </button>
+                <strong className={styles.fontSize}>{editorFontSize}px</strong>
+                <button
+                  className={styles.button}
+                  type="button"
+                  onClick={handleIncrement}>
+                  +
+                </button>
+              </div>
             </div>
             <Button
               type="button"
-              className={styles.testButton}
               appearance="primary"
               onClick={handleCheckCode}>
               Проверить решение

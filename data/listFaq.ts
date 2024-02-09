@@ -4,7 +4,7 @@ export const listFaq: ListFAQ[] = [
   {
     id: 1,
     question: 'Как выполнить отладку кода?',
-    answer: 'Нажмите ctrl/cmd + shift/option + j, откроется консоль с ошибками',
+    answer: 'Нажмите "Консоль" под редактором кода, откроется лог с ошибками',
   },
   {
     id: 2,
