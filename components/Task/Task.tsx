@@ -7,6 +7,7 @@ import { H } from '../UI/H/H';
 import { P } from '../UI/P/P';
 import { TaskProps } from './Task.props';
 import styles from './Task.module.css';
+import { LS_FONT_SIZE } from '@/constants/localStorage/localStorage';
 
 export const Task: FC<TaskProps> = ({
   task,
@@ -16,18 +17,30 @@ export const Task: FC<TaskProps> = ({
 }) => {
   const { userScheme } = useContext(ThemeContext);
   const { title, problem, example, problemSecond, exampleSecond } = task;
-  const [editorFontSize, setEditorFontSize] = useState<number>(14);
+  const [editorFontSize, setEditorFontSize] = useState<number>(
+    Number(window.localStorage.getItem(LS_FONT_SIZE)) || 14,
+  );
 
   const handleDecrement = (): boolean | void => {
     if (editorFontSize <= 10) return;
 
-    setEditorFontSize((prev) => (prev -= 1));
+    setEditorFontSize((prevValue) => {
+      const newValue = prevValue - 1;
+      window.localStorage.setItem(LS_FONT_SIZE, String(newValue));
+
+      return newValue;
+    });
   };
 
   const handleIncrement = (): boolean | void => {
     if (editorFontSize >= 30) return;
 
-    setEditorFontSize((prev) => (prev += 1));
+    setEditorFontSize((prevValue) => {
+      const newValue = prevValue + 1;
+      window.localStorage.setItem(LS_FONT_SIZE, String(newValue));
+
+      return newValue;
+    });
   };
 
   return (
@@ -66,6 +79,7 @@ export const Task: FC<TaskProps> = ({
               </button>
             </div>
             <Button
+              type="button"
               className={styles.testButton}
               appearance="primary"
               onClick={handleCheckCode}>

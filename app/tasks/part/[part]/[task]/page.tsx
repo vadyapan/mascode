@@ -1,5 +1,5 @@
 'use client';
-import { MouseEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Modal from '@/components/Modal/Modal';
 import { NavBar } from '@/components/NavBar/NavBar';
@@ -59,8 +59,7 @@ export default function Problem({
     }, 600000);
   }, []);
 
-  const handleCheckCode = async (e: MouseEvent): Promise<void> => {
-    e.preventDefault;
+  const handleCheckCode = (): void => {
     try {
       if (checkFunction) {
         const userFn = new Function(`return ${userCode}`)();

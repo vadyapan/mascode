@@ -35,6 +35,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: color 0.2s ease-in-out;
+}
+
+.editFontSizeSection:hover .fontSize,
+.editFontSizeSection:hover .fontSizeButton {
+  color: var(--black);
 }
 
 .fontSize {
