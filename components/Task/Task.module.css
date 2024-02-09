@@ -31,16 +31,12 @@
   margin-inline: 40px;
 }
 
+.actionSection,
 .editFontSizeSection {
   display: flex;
   justify-content: center;
   align-items: center;
   transition: color 0.2s ease-in-out;
-}
-
-.editFontSizeSection:hover .fontSize,
-.editFontSizeSection:hover .fontSizeButton {
-  color: var(--black);
 }
 
 .fontSize {
@@ -49,13 +45,12 @@
   cursor: default;
 }
 
-.fontSizeButton {
+.button {
   padding: 10px 15px;
 
   font-size: 14px;
   font-family: var(--font-ibm-plex);
   font-weight: 600;
-  text-transform: uppercase;
 
   color: var(--coral);
   background-color: var(--middle-coral);
@@ -65,6 +60,19 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+}
+
+.actionSection > .button {
+  margin-right: 20px;
+}
+
+.editFontSizeSection:hover .fontSize,
+.editFontSizeSection:hover .button {
+  color: var(--black);
+}
+
+.button:hover {
+  color: var(--black);
 }
 
 .noTask {

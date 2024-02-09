@@ -25,6 +25,7 @@ export default function Problem({
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [getData, setGetData] = useState<DataProblems>();
   const [userCode, setUserCode] = useState<string>();
+  const [errorMsg, setErrorMsg] = useState<string | null>();
   const checkFunction = findTask({
     part: params.part,
     task: params.task,
@@ -68,13 +69,12 @@ export default function Problem({
         if (getData && isSuccessAnswer) {
           setIsSolved({ ...isSolved, [getData.slug]: true });
           successNotification();
-        } else {
-          errorNotification();
+          setErrorMsg('Задача решена!');
         }
       }
     } catch (error) {
       if (error instanceof Error) {
-        console.error(`Исправьте ошибки: ${error.message}`);
+        setErrorMsg(error.message);
         errorNotification();
       }
     }
@@ -90,6 +90,7 @@ export default function Problem({
             userCode={userCode}
             setUserCode={setUserCode}
             handleCheckCode={handleCheckCode}
+            errorMsg={errorMsg}
           />
         </>
       )}

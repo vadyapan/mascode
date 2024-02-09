@@ -1,0 +1,9 @@
+.msg {
+  color: var(--purple);
+}
+
+.msg::before {
+  content: '🤖';
+  font-size: 20px;
+  margin-right: 5px;
+}
