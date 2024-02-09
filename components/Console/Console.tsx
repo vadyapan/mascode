@@ -1,10 +1,16 @@
 import { FC } from 'react';
 import { ConsoleProps } from './Console.prop';
 import styles from './Console.module.css';
+import { P } from '../UI/P/P';
 
 export const Console: FC<ConsoleProps> = ({
-  errorMsg = `Нажмите "Проверить решение", 
-  \nчтобы получить первую ошибку`,
+  errorMsg = 'Нажмите "Проверить решение"',
 }) => {
-  return <h4 className={styles.msg}>{errorMsg}</h4>;
+  return (
+    <pre>
+      <P className={styles.msg} size="s">
+        {errorMsg}
+      </P>
+    </pre>
+  );
 };
