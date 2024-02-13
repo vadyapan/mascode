@@ -59,6 +59,7 @@ export const CodeEditor: FC<CodeEditorProps> = ({
         lineNumbersMinChars: 2,
         overviewRulerLanes: 0,
         fontSize: editorFontSize,
+        fontFamily: 'var(--font-fira)',
         matchBrackets: 'never',
       }}
     />

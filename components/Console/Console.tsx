@@ -8,9 +8,7 @@ export const Console: FC<ConsoleProps> = ({
 }) => {
   return (
     <pre>
-      <P className={styles.msg} size="s">
-        {errorMsg}
-      </P>
+      <P className={styles.msg}>{errorMsg}</P>
     </pre>
   );
 };
