@@ -57,3 +57,12 @@
 .ghost:hover {
   color: var(--menu-color);
 }
+
+.success {
+  border: 2px solid var(--success);
+  background: var(--success);
+}
+
+.success:hover {
+  background: var(--success-bgr);
+}

@@ -23,12 +23,9 @@
       width="36" height="36" alt="NextJS" />
       <br>NextJS
     </td>
-    <td align="center" width="110" height="90"> 
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg"
-      width="36" height="36" alt="Jest" />
-      <br>Jest
-    </td>
   </tr> 
 </table>
 
 ![ScreenShot](https://github.com/vadyapan/mascode/blob/main/screenshot/screen.png)
+
+![ScreenShot](https://github.com/vadyapan/mascode/blob/main/screenshot/screen-second.png)

@@ -76,12 +76,13 @@ export const Task: FC<TaskProps> = ({
           />
           <div className={styles.buttonSection}>
             <div className={styles.actionSection}>
-              <button
-                className={styles.button}
+              <Button
+                className={styles.consoleButton}
                 type="button"
+                appearance="primary"
                 onClick={handleConsole}>
                 Консоль
-              </button>
+              </Button>
               <div className={styles.editFontSizeSection}>
                 <button
                   className={styles.button}
@@ -89,7 +90,7 @@ export const Task: FC<TaskProps> = ({
                   onClick={handleDecrement}>
                   -
                 </button>
-                <strong className={styles.fontSize}>{editorFontSize}px</strong>
+                <b className={styles.fontSize}>{editorFontSize}px</b>
                 <button
                   className={styles.button}
                   type="button"
@@ -100,7 +101,7 @@ export const Task: FC<TaskProps> = ({
             </div>
             <Button
               type="button"
-              appearance="primary"
+              appearance="success"
               onClick={handleCheckCode}>
               Проверить решение
             </Button>
