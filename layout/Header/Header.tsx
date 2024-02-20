@@ -6,6 +6,7 @@ import { ThemeContext } from '@/contexts/themeContext';
 import { ColorSchemeSwitcher } from '@/components/ColorSchemeSwitcher/ColorSchemeSwitcher';
 import { LogoLight } from '@/components/Logo/LogoLight';
 import { LogoDark } from '@/components/Logo/LogoDark';
+import { ColorScheme } from '@/types/interfaces';
 import styles from './Header.module.css';
 
 export const Header: FC = () => {
@@ -17,7 +18,7 @@ export const Header: FC = () => {
       <div className={styles.header__info}>
         <div className={styles.logo}>
           <Link href={'/'} aria-label="Mascode">
-            {userScheme === 'light' ? <LogoLight /> : <LogoDark />}
+            {userScheme === ColorScheme.LIGHT ? <LogoLight /> : <LogoDark />}
           </Link>
         </div>
         <nav className={styles.menu}>

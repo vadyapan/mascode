@@ -1,8 +1,9 @@
 import { H } from '@/components/UI/H/H';
 import { listFaq } from '@/data/listFaq';
+import { FC } from 'react';
 import styles from './page.module.css';
 
-export default function Faq(): JSX.Element {
+const Faq: FC = () => {
   return (
     <>
       <div className={styles.wrapper}>
@@ -24,4 +25,6 @@ export default function Faq(): JSX.Element {
       </div>
     </>
   );
-}
+};
+
+export default Faq;

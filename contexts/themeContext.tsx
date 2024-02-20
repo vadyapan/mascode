@@ -1,15 +1,7 @@
 'use client';
-import {
-  useEffect,
-  useState,
-  Context,
-  createContext,
-  FC,
-  ReactNode,
-} from 'react';
+import { Context, createContext, FC, ReactNode, useEffect, useState } from 'react';
 import { applyScheme, getSavedScheme } from '@/utils/colorScheme';
-
-export type ColorScheme = 'light' | 'dark';
+import { ColorScheme } from '@/types/interfaces';
 
 interface ThemeContextType {
   userScheme: ColorScheme;
@@ -17,7 +9,7 @@ interface ThemeContextType {
 }
 
 const initialValue: ThemeContextType = {
-  userScheme: 'light',
+  userScheme: ColorScheme.LIGHT,
   setUserScheme: () => {},
 };
 
@@ -27,7 +19,7 @@ export const ThemeContext: Context<ThemeContextType> =
 export const ThemeContextProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [userScheme, setUserScheme] = useState<ColorScheme>('light');
+  const [userScheme, setUserScheme] = useState<ColorScheme>(ColorScheme.LIGHT);
 
   useEffect(() => {
     const getScheme = getSavedScheme();
@@ -39,8 +31,8 @@ export const ThemeContextProvider: FC<{ children: ReactNode }> = ({
   }, [userScheme]);
 
   const defaultValue = {
-    userScheme: userScheme,
-    setUserScheme: setUserScheme,
+    userScheme,
+    setUserScheme,
   };
 
   return (

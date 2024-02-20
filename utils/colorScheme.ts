@@ -1,6 +1,7 @@
 import { LS_COLOR_SCHEME_KEY } from '@/constants/localStorage/localStorage';
+import { ColorScheme } from '@/types/interfaces';
 
-export function applyScheme(scheme: 'dark' | 'light'): void {
+export function applyScheme(scheme: ColorScheme ): void {
   document.documentElement.setAttribute('scheme', scheme);
   return window.localStorage.setItem(
     LS_COLOR_SCHEME_KEY,
@@ -8,6 +9,6 @@ export function applyScheme(scheme: 'dark' | 'light'): void {
   );
 }
 
-export function getSavedScheme(): 'dark' | 'light' {
-  return window.localStorage.getItem(LS_COLOR_SCHEME_KEY) as 'dark' | 'light';
+export function getSavedScheme(): ColorScheme {
+  return window.localStorage.getItem(LS_COLOR_SCHEME_KEY) as ColorScheme;
 }

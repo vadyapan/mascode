@@ -1,14 +1,18 @@
 import { Metadata } from 'next';
-import { ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'Mascode | FAQ',
 };
 
-export default function FaqLayout({
-  children,
-}: {
+type FaqLayout = {
   children: ReactNode;
-}): JSX.Element {
+};
+
+const FaqLayout: FC<FaqLayout> = ({
+  children,
+}) => {
   return <div>{children}</div>;
-}
+};
+
+export default FaqLayout;

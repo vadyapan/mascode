@@ -36,3 +36,8 @@ export interface GetDataWithOneQueryParam {
   query: string;
   param: string;
 }
+
+export const enum ColorScheme {
+  LIGHT = 'light',
+  DARK = 'dark',
+}

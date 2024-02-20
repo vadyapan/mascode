@@ -1,14 +1,18 @@
 import { Metadata } from 'next';
-import { ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'Mascode | Задачи',
 };
 
-export default function PartLayout({
-  children,
-}: {
+type PartLayout = {
   children: ReactNode;
-}): JSX.Element {
+};
+
+const PartLayout: FC<PartLayout>  = ({
+  children
+}) => {
   return <>{children}</>;
-}
+};
+
+export default PartLayout;

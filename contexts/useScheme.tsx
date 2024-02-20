@@ -1,19 +1,20 @@
-import { MouseEvent, useContext } from 'react';
-import { ColorScheme, ThemeContext } from '@/contexts/themeContext';
+import { useContext } from 'react';
+import { ThemeContext } from '@/contexts/themeContext';
+import { ColorScheme } from '@/types/interfaces';
 
-type UserSchemeResult = {
+type UserScheme = {
   userScheme: ColorScheme;
-  switchTheme: (e: MouseEvent) => void;
+  switchTheme: () => void;
 };
 
-export function useScheme(): UserSchemeResult {
+export function useScheme(): UserScheme {
   const { userScheme, setUserScheme } = useContext(ThemeContext);
 
-  const switchTheme = (e: MouseEvent): void => {
-    e.preventDefault;
-    const newScheme = userScheme === 'dark' ? 'light' : 'dark';
+  const switchTheme = (): void => {
+    const newScheme = userScheme === ColorScheme.LIGHT ? ColorScheme.DARK : ColorScheme.LIGHT;
     setUserScheme(newScheme);
   };
+
   return {
     userScheme,
     switchTheme,

@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Modal from '@/components/Modal/Modal';
 import { NavBar } from '@/components/NavBar/NavBar';
@@ -13,23 +13,26 @@ import { DataProblems } from '@/types/interfaces';
 import { getDataWithOneQueryParam } from '@/utils/getDataWithOneQueryParam';
 import { findTask } from '@/utils/findTask';
 import { Task } from '@/components/Task/Task';
-import styles from './page.module.css';
 import { H } from '@/components/UI/H/H';
+import styles from './page.module.css';
 
-export default function Problem({
-  params,
-}: {
-  params: { part: string; task: string };
-}): JSX.Element {
+type Problem = {
+  params: {
+    part: string;
+    task: string
+  };
+};
+
+const Problem: FC<Problem> = ({
+  params
+}) => {
+  const { part, task } = params;
   const [isSolved, setIsSolved] = useSolved();
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [getData, setGetData] = useState<DataProblems>();
   const [userCode, setUserCode] = useState<string>();
   const [errorMsg, setErrorMsg] = useState<string | null>();
-  const checkFunction = findTask({
-    part: params.part,
-    task: params.task,
-  });
+  const checkFunction = findTask({ part, task });
 
   useEffect(() => {
     const getProblem = async (): Promise<void> => {
@@ -37,7 +40,7 @@ export default function Problem({
         getDataWithOneQueryParam<DataProblems[]>({
           path: 'problems',
           query: 'slug',
-          param: params.task,
+          param: task
         })
           .then((data) => {
             setGetData(data[0]);
@@ -52,7 +55,7 @@ export default function Problem({
     };
 
     getProblem();
-  }, [params.task]);
+  }, [task]);
 
   useEffect(() => {
     setInterval(() => {
@@ -109,4 +112,6 @@ export default function Problem({
         )}
     </>
   );
-}
+};
+
+export default Problem;

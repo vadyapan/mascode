@@ -1,4 +1,5 @@
 'use client';
+import { FC } from 'react';
 import { H } from '@/components/UI/H/H';
 import Link from 'next/link';
 import { listProblems } from '@/data/listProblems';
@@ -6,11 +7,15 @@ import { useSolved } from '@/contexts/useSolved';
 import cn from 'classnames';
 import styles from '../page.module.css';
 
-export default function Tasks({
-  params,
-}: {
-  params: { part: string };
-}): JSX.Element {
+type Tasks = {
+  params: {
+    part: string
+  };
+};
+
+const Tasks: FC<Tasks> = ({
+  params
+}) => {
   const [isSolved] = useSolved();
   const isMatch = listProblems.filter((part) => part.slug === params.part);
 
@@ -40,6 +45,8 @@ export default function Tasks({
       </div>
     );
   }
-  
+
   return <h2>В этом разделе пока нет задач</h2>;
-}
+};
+
+export default Tasks;

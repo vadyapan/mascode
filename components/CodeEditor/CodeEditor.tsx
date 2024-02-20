@@ -3,7 +3,9 @@ import { FC, useEffect } from 'react';
 import { CodeEditorProps } from '@/components/CodeEditor/CodeEditor.props';
 import MonacoEditor, { loader } from '@monaco-editor/react';
 import { Spinner } from '@/components/Spinner/Spinner';
+import { editor } from 'monaco-editor';
 import styles from './CodeEditor.module.css';
+import { ColorScheme } from '@/types/interfaces';
 
 export const CodeEditor: FC<CodeEditorProps> = ({
   userCode,
@@ -11,8 +13,8 @@ export const CodeEditor: FC<CodeEditorProps> = ({
   userScheme,
   editorFontSize,
 }) => {
-  const colorScheme = userScheme === 'light' ? 'vs' : 'vs-dark';
-  const colorBackground = userScheme === 'light' ? '#ffffff' : '#161A25';
+  const colorScheme = userScheme === ColorScheme.LIGHT ? 'vs' : 'vs-dark';
+  const colorBackground = userScheme === ColorScheme.LIGHT ? '#ffffff' : '#161A25';
 
   useEffect(() => {
     loader.init().then((monaco) => {
@@ -31,18 +33,22 @@ export const CodeEditor: FC<CodeEditorProps> = ({
     });
   }, [colorScheme, colorBackground]);
 
-  const handleCode = (event: string): void => {
-    setUserCode(event);
+  const handleCode = (editor: editor.IStandaloneCodeEditor): void => {
+    editor.onDidChangeModelContent(() => {
+      const newValue = editor.getValue();
+      setUserCode(newValue);
+    });
   };
+
 
   return (
     <MonacoEditor
       height="50vh"
-      defaultValue={`${userCode}`}
+      defaultValue={userCode}
       defaultLanguage="javascript"
       theme="myTheme"
       className={styles.editor}
-      onChange={(event) => handleCode(event || userCode)}
+      onMount={handleCode}
       loading={<Spinner />}
       options={{
         wordWrap: 'on',

@@ -1,9 +1,10 @@
+import { FC } from 'react';
 import { H } from '@/components/UI/H/H';
 import Link from 'next/link';
 import { listProblems } from '@/data/listProblems';
 import styles from './page.module.css';
 
-export default function Part(): JSX.Element {
+const Part: FC = () => {
   return (
     <>
       <div className={styles.wrapper}>
@@ -24,4 +25,6 @@ export default function Part(): JSX.Element {
       </div>
     </>
   );
-}
+};
+
+export default Part;

@@ -1,4 +1,4 @@
-type ColorScheme = 'light' | 'dark' | 'auto';
+import { ColorScheme } from '@/types/interfaces';
 
 export interface CodeEditorProps {
   userCode: string;

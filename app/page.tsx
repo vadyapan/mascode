@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { listParts } from '@/data/listParts';
 import { MainInfo } from '@/components/MainInfo/MainInfo';
-import styles from './page.module.css';
 import { PartCard } from '@/components/PartCard/PartCard';
+import styles from './page.module.css';
 
 export const metadata: Metadata = {
   title: 'Mascode | Получи практику программирования на JavaScript',
